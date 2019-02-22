@@ -1,0 +1,56 @@
+
+.AlertErrorRegistration ul{
+    margin-bottom: 5px;
+}
+.ButtonControl button{
+    margin-left: 20px;
+}
+
+
+/*====================Login Page=================================*/
+.page-cover{
+    width: 400px;
+    height: 400px;
+    margin-top: 30%;
+}
+.Card{
+    margin-top: 30%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+.Card a {
+    color: #1967d2;
+    padding: 0;
+}
+.Card a:hover {
+    color: #1967d2;
+}
+/*====================Login Page End=============================*/
+
+
+
+/*====================Register Page =============================*/
+.page-cover-register{
+    margin-top: 30%;
+}
+.CardRegister{
+    margin-top: 30%;
+}
+.CardRegister a{
+    color: #1967d2;
+    padding: 0;
+}
+.CardRegister a:hover {
+    color: #1967d2;
+}
+.Container h1{
+    font-family: "Open Sans", Roboto, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #202124;
+    line-height: 32px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+/*====================Register Page End==========================*/

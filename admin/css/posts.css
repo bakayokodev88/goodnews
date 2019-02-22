@@ -1,0 +1,66 @@
+.breadcrumb{
+    background-color: white;
+}
+
+.Title h1{
+    font-family: "Open Sans", Roboto, Arial, sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: #202124;
+}
+.Title p{
+    font-family: "Open Sans", Roboto, Arial, sans-serif;
+}
+
+.Page-illustration{
+    width: 50%;
+    height: 50%;
+
+}
+.RowControl{
+    margin-bottom: 20px;
+}
+.OptionControl button{
+    border: 1px solid #1a73e8;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #1a73e8;
+    background-color: #F5F5F5;
+    font-family: 'Google Sans',sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    height: 36px;
+    margin-left: 5px;
+}
+
+.OptionControl button:hover{
+    color: #1a73e8;
+    background-color: #F5F5F5;
+}
+.OptionControl button:focus{
+    color: #1a73e8;
+    background-color: #F5F5F5;
+}
+.OptionControl button:active{
+    color: #1a73e8;
+    background-color: #F5F5F5;
+}
+.OptionControl button:visited{
+    color: #1a73e8;
+    background-color: #F5F5F5;
+}
+.ArticleTable{
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.rowTable{
+    padding:0;
+    margin: 0;
+}
+.Table-control a{
+    color: #5f6368;
+    background-color: white;
+    font-size: 12px;
+}

@@ -1,0 +1,112 @@
+
+/*============== Navbars ======================*/
+
+.Nav1{
+    background-color: #0069c0 !important;
+    padding: 0;
+    width: 100%;
+}
+
+.Nav1 a{
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+.Nav2 {
+    background-color: #2196f3 !important;
+    width: 100%;
+
+}
+.Nav2 a{
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+.Nav2 .navbar{
+    padding-left: 0;
+    padding-right: 0;
+}
+/*Navbard-brand Icon*/
+.Nav2 .navbar-brand{
+    color: white;
+}
+.Nav2 .navbar-brand:hover{
+    color: white;
+}
+.Nav2 .navbar-brand:visited{
+    color: white;
+}
+
+.Dropdown-menu a{
+    color: #000;
+}
+
+
+/*==============Navbars End ======================*/
+
+
+/*============== Carrousel ======================*/
+
+.Carousel-item img{
+    max-width: 100%;
+    height: 500px;
+}
+.Carousel-caption{
+    margin-bottom: 150px;
+}
+
+/*============== Carrousel End======================*/
+
+/*================= Welcome Message=================*/
+
+.Welcome h1{
+    font-size: 20px;
+    text-align: center;
+    float: right;
+}
+/*================= Welcome Message End=================*/
+
+
+
+/*============== Body ======================*/
+.Card {
+    margin-bottom: 20px;
+}
+.Card img{
+    max-width:100%;
+    height: 270px;
+}
+
+
+/*============== Body End======================*/
+
+
+
+
+
+
+
+
+/*============== Sidebar======================*/
+.Sidebar .nav-link{
+    color: #212529;
+    padding: 5px 8px 8px 8px ;
+}
+
+/*Category*/
+/*Recent Post*/
+.CardRecentPost{
+    border: 0;
+}
+.CardRecentPost .card-body{
+    padding-right: 5px;
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+.CardRecentPost .card-title{
+    margin-top: 0;
+    font-size: 14px;
+}
+
+/*============== Sidebar End======================*/

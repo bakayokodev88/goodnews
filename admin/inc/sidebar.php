@@ -80,38 +80,12 @@
 
         <!--Setting Link-->
         <li class="link">
-            <a href="#collapseAccount" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseAccount">
+            <a href="account">
                 <span>
                     <i class="fas fa-user-cog"></i>
                 </span>
                 <span>My account</span>
             </a>
-            <ul class="collapse" id="collapseAccount">
-                <li class="link">
-                    <a href="#">
-                        <span>
-                            <i class="far fa-address-card"></i>
-                        </span>
-                        <span>Personal information</span>
-                    </a>
-                </li>
-                <li class="link">
-                    <a href="#">
-                        <span>
-                            <i class="fas fa-user-lock"></i>
-                        </span>
-                        <span>Security</span>
-                    </a>
-                </li>
-                <li class="link">
-                    <a href="#">
-                        <span>
-                             <i class="far fa-user-circle"></i>
-                        </span>
-                        <span>Account</span>
-                    </a>
-                </li>
-            </ul>
         </li>
         <!--Setting link end-->
     </ul>

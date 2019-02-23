@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                <div class="ontainer">
+                <div class="container">
                     <div class="row RowControl">
                         <div class="col-sm-6">
 
@@ -108,15 +108,15 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="view-post">
                                                 <i class="far fa-folder-open"></i>
                                                 &nbsp; View
                                             </a>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="edit-post">
                                                 <i class="far fa-edit"></i>
                                                 &nbsp; Edit
                                             </a>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="#"  data-toggle="modal" data-target="#ModalDeletePost">
                                                 <i class="far fa-trash-alt"></i>
                                                 &nbsp; Delete
                                             </a>
@@ -138,11 +138,11 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="view-post">
                                                 <i class="far fa-folder-open"></i>
                                                 &nbsp; View
                                             </a>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="edit-post">
                                                 <i class="far fa-edit"></i>
                                                 &nbsp; Edit
                                             </a>
@@ -168,7 +168,7 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="view-post">
                                                 <i class="far fa-folder-open"></i>
                                                 &nbsp; View
                                             </a>
@@ -195,6 +195,31 @@
 
             </div>
         </div>
+
+
+        <!--Modal to delete post-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="ModalDeletePost" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Delete post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal to delete post End-->
         <!-- Main Content End -->
 
     </div>

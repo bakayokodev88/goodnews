@@ -28,7 +28,7 @@
                 </a>
                 <div class="dropdown-menu Dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="config/logout.php">Log out</a>
-                    <a class="dropdown-item" href="register">My account</a>
+                    <a class="dropdown-item" href="account">My account</a>
                 </div>
             </li>
         </ul>

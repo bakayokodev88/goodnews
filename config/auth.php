@@ -52,10 +52,9 @@ if (isset($_POST) && isset($_POST['register'])) {
         } else {
             //case with success
             $_SESSION['account']['username'] = $_POST['inputUsername'];
-
         }
-
     }
+
     //Control the email
     if (isset($_POST['inputEmail']) || !filter_var($_POST['inputEmail'], FILTER_VALIDATE_EMAIL)) {
         $_SESSION['errors']['email'] = "Enter a valid email";

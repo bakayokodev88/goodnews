@@ -12,7 +12,6 @@ session_start();
 
 require_once('config.php');
 
-
 //************** GET FUNCTION
 //************** GET FUNCTION END
 

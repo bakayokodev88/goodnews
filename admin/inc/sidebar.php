@@ -1,5 +1,5 @@
 <div class="col-sm-2" id="side-menu">
-    <ul class="">
+    <ul>
         <!--Home Link-->
         <li>
             <a href="http://localhost/goodnews/admin">
@@ -13,7 +13,7 @@
 
         <!--Article Link-->
         <li class="link">
-            <a href="http://localhost/goodnews/admin/posts">
+            <a href="posts">
                 <span>
                     <i class="far fa-file-alt"></i>
                 </span>
@@ -46,7 +46,7 @@
 
         <!--Comments link-->
         <li class="link">
-            <a href="#">
+            <a href="comments">
                 <span>
                     <i class="far fa-comments"></i>
                 </span>
@@ -80,12 +80,38 @@
 
         <!--Setting Link-->
         <li class="link">
-            <a href="#">
+            <a href="#collapseAccount" data-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseAccount">
                 <span>
-                    <i class="far fa-user-circle"></i>
+                    <i class="fas fa-user-cog"></i>
                 </span>
                 <span>My account</span>
             </a>
+            <ul class="collapse" id="collapseAccount">
+                <li class="link">
+                    <a href="#">
+                        <span>
+                            <i class="far fa-address-card"></i>
+                        </span>
+                        <span>Personal information</span>
+                    </a>
+                </li>
+                <li class="link">
+                    <a href="#">
+                        <span>
+                            <i class="fas fa-user-lock"></i>
+                        </span>
+                        <span>Security</span>
+                    </a>
+                </li>
+                <li class="link">
+                    <a href="#">
+                        <span>
+                             <i class="far fa-user-circle"></i>
+                        </span>
+                        <span>Account</span>
+                    </a>
+                </li>
+            </ul>
         </li>
         <!--Setting link end-->
     </ul>

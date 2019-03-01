@@ -31,7 +31,9 @@ require_once('config/config.php')
         <div class="col-sm-6">
             <div class="card CardRegister">
                 <div class="card-body">
-                    <h1 class="">Create your GoodNews Account</h1>
+                    <h1 class="">
+                        Create your GoodNews Account
+                    </h1>
 
                     <!--Error testing to delete-->
                     <?php
@@ -78,8 +80,6 @@ require_once('config/config.php')
                             if ($_POST['inputPassword'] != $_POST['inputPassword2']) {
                                 $_SESSION['errors']['password'] = "Password doesn't match session";
                             }
-
-                            
 
                         }
 

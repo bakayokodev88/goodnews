@@ -1,0 +1,37 @@
+
+.CommentRows{
+    padding: 0;
+    margin: 0;
+}
+
+.CommentRows .col-sm-1{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.CommentRows .col-sm-11{
+    padding-left: 0;
+    padding-right: 0;
+}
+.CommentImg{
+    width: 64px;
+    height: 64px;
+}
+
+.Category{
+    margin-bottom: 0;
+    font-size: 16px;
+
+}
+.ArticleTitle{
+    margin-bottom: 0;
+    font-size: 13px;
+
+}
+.CommentItself{
+    font-size: 13px;
+}
+
+.ArticleTable td {
+    padding: 0;
+}

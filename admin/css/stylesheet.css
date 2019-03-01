@@ -63,8 +63,8 @@ html, body {
 
 #side-menu ul {
     list-style: none;
-    padding: 0;
     padding-top: 20px;
+    padding-left: 0;
 }
 
 #side-menu a {
@@ -76,18 +76,31 @@ html, body {
     font-weight: 500 !important;
     font-style: normal;
     display: block;
-    border-bottom-right-radius:50rem!important;;
-    border-top-right-radius:50rem!important;;
+    border-bottom-right-radius:50rem!important;
+    border-top-right-radius:50rem!important;
 
 }
-
+#side-menu a.active {
+    color: #1a73e8 !important;
+    background-color: #e8f0fe;
+    border-bottom-right-radius: 50rem!important;
+    border-top-right-radius: 50rem!important;
+}
+#side-menu a.active:hover {
+    color: #1a73e8 !important;
+    background-color: #e8f0fe;
+    border-bottom-right-radius: 50rem!important;
+    border-top-right-radius: 50rem!important;
+}
 #side-menu a:hover {
     background: #F5F5F5;
 }
-#side-menu a:active {
-    color: #1967d2;
+#side-menu a:active  {
+    color: #1a73e8;
     background: #e8f0fe;
-    display: block;
+    border-bottom-right-radius:50rem!important;
+    border-top-right-radius:50rem!important;
+
 }
 #side-menu a:focus  {
     color: #1a73e8;
@@ -117,4 +130,42 @@ html, body {
     width: 96%;
 }
 /*==============Main Body end ======================*/
+
+
+
+
+
+
+/*================== Control Button ================*/
+
+.ButtonPrimary {
+    background-color: transparent;
+    font-size: 15px;
+    border: 1px solid #1a73e8;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #1a73e8;
+    cursor: pointer;
+    display: inline-block;
+    height: 36px;
+    padding: 5px 20px 5px 20px;
+
+}
+
+.ButtonPrimary:hover{
+    background-color: transparent;
+    font-size: 15px;
+    border: 1px solid #1a73e8;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #1a73e8;
+    cursor: pointer;
+    display: inline-block;
+    height: 36px;
+    padding: 5px 20px 5px 20px;
+    text-decoration: none;
+}
+
+
+/*================== Control Button End=============*/
 

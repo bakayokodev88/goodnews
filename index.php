@@ -9,25 +9,20 @@
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="webroot/css/stylesheet.css">
-    <link rel="stylesheet" href="vendor/fontawesome/css/all.css" >
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
     <title>Hello, world!</title>
 </head>
 <body>
 
 <!--Menu -->
-<?php include ("webroot/inc/navs.php")?>
+<?php include("webroot/inc/navs.php") ?>
 
 <!--Menu End-->
 <!--Carousel-->
-<?php include ("webroot/inc/main-carousel.php")?>
+<?php include("webroot/inc/main-carousel.php") ?>
 
 <br><br>
 <!--Carousel End-->
-<div class="container">
-    <div class="row Welcome">
-        <h1 class="">Welcome to GoodNews</h1>
-    </div>
-</div>
 
 <!-- Main Container-->
 <div class="container">
@@ -38,33 +33,43 @@
             <div class="container">
                 <div class="row">
                     <div class="card Card">
-                        <img src="assets/ban1.jpg" class="card-img-top" alt="...">
+                        <a href="http://localhost/goodnews/post">
+                            <img src="assets/ban1.jpg" class="card-img-top img-fluid" alt="...">
+                        </a>
                         <div class="card-body">
                             <h5 class="card-title">Some quick example text to build on the card title</h5>
                             <p class="card-text">
                                 Some quick example text to build on the card title and make up the bulk of the
-                                card's content.loremSome quick example text to build on the card title and make up the bulk of the
-                                card's content.loremSome quick example text to build on the card title and make up the bulk of the
-                                card's content.loremSome quick example text to build on the card title and make up the bulk of the
-                                card's content.lorem Some quick example text to build on the card title and make up the bulk of the
+                                card's content.loremSome quick example text to build on the card title and make up the
+                                bulk of the
+                                card's content.loremSome quick example text to build on the card title and make up the
+                                bulk of the
+                                card's content.loremSome quick example text to build on the card title and make up the
+                                bulk of the
+                                card's content.lorem Some quick example text to build on the card title and make up the
+                                bulk of the
                                 card's content.lorem
                             </p>
-                            <a href="#" class="card-link">Read more</a>
+                            <a href="http://localhost/goodnews/post" class="card-link">Read more</a>
                             <span class="card-link float-sm-right"> <i class="far fa-heart"></i> 1369</span>
                             <span class="card-link float-sm-right"> <i class="far fa-comment-alt"></i> 1369</span>
                         </div>
                     </div>
 
                     <div class="card Card">
-                        <img src="assets/preview1.jpg" class="card-img-top" alt="...">
+                        <img src="assets/preview1.jpg" class="card-img-top img-fluid" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Some quick example text to build on the card title</h5>
                             <p class="card-text">
                                 Some quick example text to build on the card title and make up the bulk of the
-                                card's content.loremSome quick example text to build on the card title and make up the bulk of the
-                                card's content.loremSome quick example text to build on the card title and make up the bulk of the
-                                card's content.loremSome quick example text to build on the card title and make up the bulk of the
-                                card's content.lorem Some quick example text to build on the card title and make up the bulk of the
+                                card's content.loremSome quick example text to build on the card title and make up the
+                                bulk of the
+                                card's content.loremSome quick example text to build on the card title and make up the
+                                bulk of the
+                                card's content.loremSome quick example text to build on the card title and make up the
+                                bulk of the
+                                card's content.lorem Some quick example text to build on the card title and make up the
+                                bulk of the
                                 card's content.lorem
                             </p>
                             <a href="#" class="card-link">Read more</a>
@@ -79,7 +84,7 @@
             <!--Pagination -->
             <div class="container ">
                 <div class="row justify-content-center">
-                    <nav aria-label="..." >
+                    <nav aria-label="...">
                         <ul class="pagination">
                             <li class="page-item disabled">
                                 <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
@@ -155,7 +160,9 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">How to stop smoke detectors that keep going off</h5>
-                                    <p class="card-text"><small class="text-muted">Post on April 1, 2018</small></p>
+                                    <p class="card-text">
+                                        <small class="text-muted">Post on April 1, 2018</small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +175,9 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">How to stop smoke detectors that keep going off</h5>
-                                    <p class="card-text"><small class="text-muted">Post on April 1, 2018</small></p>
+                                    <p class="card-text">
+                                        <small class="text-muted">Post on April 1, 2018</small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +190,9 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">How to stop smoke detectors that keep going off</h5>
-                                    <p class="card-text"><small class="text-muted">Post on April 1, 2018</small></p>
+                                    <p class="card-text">
+                                        <small class="text-muted">Post on April 1, 2018</small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -198,14 +209,6 @@
     </div>
 </div>
 <!--Main Container End -->
-
-
-
-
-
-
-
-
 
 
 <!-- Optional JavaScript -->

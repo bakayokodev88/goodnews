@@ -57,33 +57,38 @@
 
 /*============== Carrousel End======================*/
 
-/*================= Welcome Message=================*/
-
-.Welcome h1{
-    font-size: 20px;
-    text-align: center;
-    float: right;
-}
-/*================= Welcome Message End=================*/
-
-
-
 /*============== Body ======================*/
 .Card {
     margin-bottom: 20px;
 }
 .Card img{
-    max-width:100%;
-    height: 270px;
+    width:100%;
+    height: 200px;
+    padding: 0;
+}
+.LoginIcon{
+    width: 64px !important;
+    height: 64px !important;
+}
+.SignIn{
+    text-align: center;
+    font-size: 24px;
+    color: #202124;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.Sub{
+    text-align: center;
+    color: #202124;
+}
+
+.ButtonRow{
+    margin-top: 10%;
+    margin-bottom: 5%;
 }
 
 
 /*============== Body End======================*/
-
-
-
-
-
 
 
 

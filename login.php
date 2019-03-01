@@ -36,9 +36,14 @@ session_start();
 
             <div class="card Card">
                 <div class="card-body">
+                    <div class="row d-flex justify-content-center">
+                        <img src="assets/system/icon/goodnews.png" class="img-fluid LoginIcon" width="64px" height="64px">
+                    </div>
+                    <p class="SignIn">Sign in</p>
+                    <p class="Sub">to continue to GoodNews</p>
                     <?php
                         if (isset($_GET) && isset($_GET['access'])){
-                            echo "<p class='text-danger'>Username or password incorrect !</p>";
+                            echo "<p class='text-danger text-center'><i class=\"fas fa-exclamation-circle\"></i>&nbsp; Username or password incorrect !</p>";
                         }
                     ?>
 
@@ -54,9 +59,12 @@ session_start();
                             <input type="password" class="form-control" placeholder="Enter your Password"
                                    name="inputPassword" required>
                         </div>
-                        <div class="form-row">
+                        <div class="form-row ButtonRow">
                             <div class="from-group col-md-8">
-                                <a class="btn btn-default float-left" href="register.php" role="button">Create an account</a>
+                                <a class="btn btn-default float-left" href="register.php" role="button">
+                                    <i class="far fa-user"></i>
+                                    Create an account
+                                </a>
                             </div>
                             <div class="from-group col-md-4">
                                 <button type="submit" class="btn btn-primary float-right" name="login">Log in</button>

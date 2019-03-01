@@ -34,7 +34,7 @@
         <!--Article Link End-->
         <!--Article Link-->
         <li class="link">
-            <a href="#">
+            <a href="draft">
                 <span>
                     <i class="far fa-file-archive"></i>
                 </span>
@@ -42,7 +42,6 @@
             </a>
         </li>
         <!--Article Link End-->
-        <hr>
 
         <!--Comments link-->
         <li class="link">
@@ -51,28 +50,6 @@
                     <i class="far fa-comments"></i>
                 </span>
                 <span>Comments</span>
-            </a>
-        </li>
-        <!--Comment link end-->
-
-        <!--Comments link-->
-        <li class="link">
-            <a href="#">
-                <span>
-                    <i class="far fa-thumbs-up"></i>
-                </span>
-                <span>Approved</span>
-            </a>
-        </li>
-        <!--Comment link end-->
-
-        <!--Comments link-->
-        <li class="link">
-            <a href="#">
-                <span>
-                    <i class="far fa-thumbs-down"></i>
-                </span>
-                <span>Unapproved</span>
             </a>
         </li>
         <!--Comment link end-->

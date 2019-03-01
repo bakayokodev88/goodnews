@@ -11,10 +11,11 @@
 
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="css/posts.css">
+    <link rel="stylesheet" href="css/comments.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
     <title>Admin</title>
 </head>
-<body>
+<body id="comments">
 
 <!--Main Navbar-->
 <?php include('inc/main-navbar.php') ?>
@@ -38,7 +39,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Article</li>
+                            <li class="breadcrumb-item active" aria-current="page">Comment</li>
                         </ol>
                     </nav>
                 </div>
@@ -60,132 +61,107 @@
                     </div>
                 </div>
 
-                <div class="ontainer">
-                    <div class="row RowControl">
-                        <div class="col-sm-6">
 
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="row  justify-content-end">
-                                <div class="nav OptionControl">
-                                    <button type="button" class="btn btn-light">
-                                        <i class="fas fa-file-alt"></i>&nbsp;
-                                        New article
-                                    </button>
-                                    <button type="button" class="btn btn-light">
-                                        <i class="far fa-file"></i>&nbsp;
-                                        New article
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="container">
+                <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
                     <div class="row rowTable">
-                        <table class="table ArticleTable">
+                        <table class="table table-borderless ArticleTable">
                             <thead>
                             <tr>
-                                <th scope="col">Status</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Title</th>
-                                <th scope="col">Operation</th>
+                                <th scope="col" style="padding-left: 0;">Comments</th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
+                                <!--Comment data-->
                                 <td>
-                                    <span class="badge badge-success">Active</span>
-                                </td>
-                                <td>Otto</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</td>
-                                <td class="Table-control">
-                                    <div class="dropdown">
-                                        <a class="btn btn-default " href="#" role="button" id="dropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">
-                                                <i class="far fa-folder-open"></i>
-                                                &nbsp; View
-                                            </a>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="far fa-edit"></i>
-                                                &nbsp; Edit
-                                            </a>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="far fa-trash-alt"></i>
-                                                &nbsp; Delete
-                                            </a>
+                                    <div class="row CommentRows align-middle">
+                                        <div class="col-sm-1">
+                                            <img src="../assets/people/jakub_škvára.jpg"
+                                                 class="img-fluid rounded-circle CommentImg" alt="">
                                         </div>
-                                    </div>
+                                        <div class="col-sm-10">
+                                            <p class="Category font-weight-bold">Category</p>
+                                            <p class="ArticleTitle font-weight-bold">Article Title</p>
+                                            <p class="CommentItself">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                elit. Debitis et facilis maxime nisi obcaecati rem! Beatae consectetur
+                                                delectus distinctio impedit...</p>
+                                        </div>
+                                        <div class="col-sm-1 align-middle Table-control">
 
+                                            <div class="dropdown">
+                                                <span class="align-middle">
+                                                    <a class="btn btn-default " href="#" role="button"
+                                                       id="dropdownMenuLink"
+                                                       data-toggle="dropdown" aria-haspopup="true"
+                                                       aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="comment.php">
+                                                        <i class="far fa-folder-open"></i>
+                                                        &nbsp; View
+                                                    </a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                       data-target="#ModalCommentDelete">
+                                                        <i class="far fa-trash-alt"></i>
+                                                        &nbsp; Delete
+                                                    </a>
+                                                </div>
+                                                </span>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </td>
+                                <!--Comment data End-->
                             </tr>
                             <tr>
+                                <!--Comment data-->
                                 <td>
-                                    <span class="badge badge-primary">Draft</span>
-                                </td>
-                                <td>Otto</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</td>
-                                <td class="Table-control">
-                                    <div class="dropdown">
-                                        <a class="btn btn-default " href="#" role="button" id="dropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">
-                                                <i class="far fa-folder-open"></i>
-                                                &nbsp; View
-                                            </a>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="far fa-edit"></i>
-                                                &nbsp; Edit
-                                            </a>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="far fa-trash-alt"></i>
-                                                &nbsp; Delete
-                                            </a>
+                                    <div class="row CommentRows align-middle">
+                                        <div class="col-sm-1">
+                                            <img src="../assets/people/jakub_škvára.jpg"
+                                                 class="img-fluid rounded-circle CommentImg" alt="">
                                         </div>
-                                    </div>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="badge badge-secondary">Disabled</span>
-                                </td>
-                                <td>Otto</td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</td>
-                                <td class="Table-control">
-                                    <div class="dropdown">
-                                        <a class="btn btn-default " href="#" role="button" id="dropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">
-                                                <i class="far fa-folder-open"></i>
-                                                &nbsp; View
-                                            </a>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="far fa-edit"></i>
-                                                &nbsp; Edit
-                                            </a>
-                                            <a class="dropdown-item" href="#">
-                                                <i class="far fa-trash-alt"></i>
-                                                &nbsp; Delete
-                                            </a>
+                                        <div class="col-sm-10">
+                                            <p class="Category font-weight-bold">Category</p>
+                                            <p class="ArticleTitle font-weight-bold">Article Title</p>
+                                            <p class="CommentItself">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                                elit. Debitis et facilis maxime nisi obcaecati rem! Beatae consectetur
+                                                delectus distinctio impedit...</p>
                                         </div>
+                                        <div class="col-sm-1 align-middle Table-control">
+
+                                            <div class="dropdown">
+                                                <span class="align-middle">
+                                                    <a class="btn btn-default " href="#" role="button"
+                                                       id="dropdownMenuLink"
+                                                       data-toggle="dropdown" aria-haspopup="true"
+                                                       aria-expanded="false">
+                                                    <i class="fas fa-ellipsis-v"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="comment.php">
+                                                        <i class="far fa-folder-open"></i>
+                                                        &nbsp; View
+                                                    </a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                       data-target="#ModalCommentDelete">
+                                                        <i class="far fa-trash-alt"></i>
+                                                        &nbsp; Delete
+                                                    </a>
+                                                </div>
+                                                </span>
+
+                                            </div>
+                                        </div>
+
                                     </div>
-
                                 </td>
+                                <!--Comment data End-->
                             </tr>
-
                             </tbody>
                         </table>
                     </div>
@@ -197,6 +173,34 @@
         </div>
         <!-- Main Content End -->
 
+
+        <!--============ Modals for comments  ====================-->
+
+        <!--********** Modal to view comments **************-->
+        <div class="modal fade" id="ModalCommentDelete" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Delete Comment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you really want to delete this comments ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--********** Modal to view comments End **************-->
+        <!--============ Modals for comments End ====================-->
+
+
     </div>
 </div>
 
@@ -206,5 +210,6 @@
 <script src="../vendor/bootstrap/js/slim.min.js"></script>
 <script src="../vendor/bootstrap/js/popper.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

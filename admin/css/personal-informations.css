@@ -1,0 +1,51 @@
+
+
+.H1{
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #202124;
+    hyphens: auto;
+    margin: 0 0 8px 0;
+    padding: 0;
+}
+.Sub{
+    font-size: 16px;
+    line-height: 24px;
+    color: #5f6368;
+}
+.MainRow{
+    margin-top: 5%;
+}
+.CardRow{
+    margin: 10px 5px 20px 5px;
+}
+.CardTitle{
+    font-size: 24px;
+    line-height: 28px;
+    color: #202124;
+}
+.CardSub{
+
+}
+.ProfilePicture{
+    width: 96px;
+    height: 96px;
+    vertical-align: middle;
+    z-index: 1;
+}
+.list-group{
+    vertical-align: middle;
+}
+.Label{
+    font-size: 14px;
+    line-height: 18px;
+    color: #5f6368;
+}
+.Value{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #202124;
+}

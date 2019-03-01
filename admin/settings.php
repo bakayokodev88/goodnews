@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="css/posts.css">
     <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
     <title>Admin</title>
 </head>
@@ -38,21 +39,14 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Account</li>
+                            <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/account">Account</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
                         </ol>
                     </nav>
                 </div>
                 <!--Breadcrumb End-->
 
-                <!--Page title-->
-                <div class="row d-flex justify-content-center">
-                    <figure class="figure AuthorPicture ">
-                        <img src="../assets/people/jakub_škvára.jpg" class="figure-img img-fluid rounded-circle" alt="Author profile picture">
-                    </figure>
-                </div>
-                <p class="Welcome">Welcome BAKAYOKO YAYA</p>
-                <p class="text-center">Manage your information and the privacy and security of your data to get the most out of GoodNews services</p>
-                <br>
+
 
                 <!--Page title End-->
 
@@ -63,16 +57,16 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <p class="Title">View your personal information</p>
-                                        <p class="Description">Lorem ipsum dolor sit amet, delectus deleniti dolor et eveniet iusto libero, minus neque nihil quam quisquam rem reprehenderit saepe sed velit voluptatibus!</p>
+                                        <p class="Title">General preferences for your account</p>
+                                        <p class="Description">Manage GoodNews service settings for your account</p>
                                     </div>
                                     <div class="col-sm-4 d-flex align-items-center">
-                                        <img src="../assets/system/icon/personal-information.png"  class="img-fluid AccountIcon" alt="">
+                                        <img src="../assets/system/icon/deleteservicesoraccount.png"  class="img-fluid AccountIcon" alt="">
                                     </div>
                                 </div>
                             </li>
                             <a href="personal-informations" class="list-group-item list-group-item-action">
-                                <span class="text-primary">Take a look</span>
+                                <span class="text-primary">Set up your account</span>
                             </a>
                         </ul>
                     </div>
@@ -84,16 +78,16 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <p class="Title">Security of your account</p>
-                                        <p class="Description">Lorem ipsum dolor sit amet, delectus deleniti dolor et eveniet iusto libero, minus neque nihil quam quisquam rem reprehenderit saepe sed velit voluptatibus!</p>
+                                        <p class="Title">Download your data</p>
+                                        <p class="Description">Create an archive of your GoodNews data</p>
                                     </div>
                                     <div class="col-sm-4 d-flex align-items-center">
-                                        <img src="../assets/system/icon/security.png"  class="img-fluid AccountIcon" alt="">
+                                        <img src="../assets/system/icon/takeout.png"  class="img-fluid AccountIcon" alt="">
                                     </div>
                                 </div>
                             </li>
                             <a href="security" class="list-group-item list-group-item-action">
-                                <span class="text-primary">Take a look</span>
+                                <span class="text-primary">Export your data</span>
                             </a>
                         </ul>
                     </div>
@@ -105,16 +99,16 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <p class="Title">Your GoodNews account</p>
-                                        <p class="Description">Lorem ipsum dolor sit amet, delectus deleniti dolor et eveniet iusto libero, minus neque nihil quam quisquam rem reprehenderit saepe sed velit voluptatibus!</p>
+                                        <p class="Title">Delete your account</p>
+                                        <p class="Description">You can permanently delete your GoodNews account and all your data, like articles, comments and photos</p>
                                     </div>
                                     <div class="col-sm-4 d-flex align-items-center">
-                                        <img src="../assets/system/icon/account.png"  class="img-fluid AccountIcon" alt="">
+                                        <img src="../assets/system/icon/delete.png"  class="img-fluid AccountIcon" alt="">
                                     </div>
                                 </div>
                             </li>
-                            <a href="settings" class="list-group-item list-group-item-action">
-                                <span class="text-primary">Take a look</span>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <span class="text-primary">Delete my account </span>
                             </a>
                         </ul>
                     </div>

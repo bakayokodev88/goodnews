@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
     <title>Admin</title>
 </head>
-<body id="posts">
+<body id="draft">
 
 <!--Main Navbar-->
 <?php include('inc/main-navbar.php') ?>
@@ -38,7 +38,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Articles</li>
+                            <li class="breadcrumb-item active" aria-current="page">Article</li>
                         </ol>
                     </nav>
                 </div>

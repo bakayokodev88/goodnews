@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
     <title>Admin</title>
 </head>
-<body>
+<body id="NewPost">
 
 <!--Main Navbar-->
 <?php include('inc/main-navbar.php') ?>
@@ -130,19 +130,6 @@
 <script src="../vendor/bootstrap/js/popper.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="../vendor/summernote/dist/summernote-bs4.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('.summernote').summernote({
-            height: 300,
-            minHeight: null,
-            maxHeight: null
-        });
-    });
-</script>
-<script type="text/javascript">
-    $(document).on('click','ul li', function () {
-        $(this).addClass('.active').siblings().removeClass('.active')
-    })
-</script>
+<script src="js/script.js"></script>
 </body>
 </html>

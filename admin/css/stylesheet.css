@@ -166,6 +166,25 @@ html, body {
     text-decoration: none;
 }
 
+.singleActionBtn{
+    color: #1a73e8;
+    border: solid 1px #dfdfdf;
+}
+.singleActionBtn:hover{
+    color: #1a73e8;
+    background-color: #E8F0FE;
+}
 
 /*================== Control Button End=============*/
+/*================== Empty Container Style=============*/
+.EmptyContainer{
+    margin-top: 5%;
+}
+.EmptyContainer p{
+    font-family: "Open Sans", Roboto, Arial, sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+/*================== Empty Container Style End=============*/
 

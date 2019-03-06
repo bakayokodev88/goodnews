@@ -1,3 +1,12 @@
+<?php
+
+//We start the session
+session_start();
+include ('config/police.php');
+include ('../config/config.php');
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -99,7 +108,7 @@
                             <li class="list-group-item">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <p class="Title">Delete your account</p>
+                                        <p class="Title">Delete your account GoodNews</p>
                                         <p class="Description">You can permanently delete your GoodNews account and all your data, like articles, comments and photos</p>
                                     </div>
                                     <div class="col-sm-4 d-flex align-items-center">
@@ -108,7 +117,7 @@
                                 </div>
                             </li>
                             <a href="#" class="list-group-item list-group-item-action">
-                                <span class="text-primary">Delete my account </span>
+                                <span class="text-primary">Delete your account</span>
                             </a>
                         </ul>
                     </div>
@@ -126,11 +135,8 @@
 </div>
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../vendor/bootstrap/js/slim.min.js"></script>
-<script src="../vendor/bootstrap/js/popper.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+
+<!--Inclusion of the the JavaScript required files-->
+<?php include('inc/js-bottom-inc.php');?>
 </body>
 </html>

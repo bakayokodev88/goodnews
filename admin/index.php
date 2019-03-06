@@ -1,3 +1,12 @@
+<?php
+
+//We start the session
+session_start();
+include ('config/police.php');
+include ('../config/config.php');
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,6 +42,14 @@
                 <div class="row justify-content-center">
                     <h1 class="page-title">Dashboard</h1>
                 </div>
+                <?php
+                    debug($_SESSION);
+                    echo $idAuthor = $_SESSION['author']['idAuthor'];
+                ?>
+
+
+
+
 
             </div>
 
@@ -42,15 +59,7 @@
     </div>
 </div>
 
-
-
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../vendor/bootstrap/js/slim.min.js"></script>
-<script src="../vendor/bootstrap/js/popper.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
-
+<!--Inclusion of the the JavaScript required files-->
+<?php include('inc/js-bottom-inc.php');?>
 </body>
 </html>

@@ -35,3 +35,12 @@
 .ArticleTable td {
     padding: 0;
 }
+
+
+
+/*===================Single comment page==================*/
+.CommentCard{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/*===================Single comment page End==================*/

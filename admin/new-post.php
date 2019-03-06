@@ -1,3 +1,13 @@
+<?php
+
+//We start the session
+session_start();
+include ('config/police.php');
+include ('config/db.php');
+include ('config/functions-posts.php');
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -40,7 +50,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/posts">Article</a></li>
+                            <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/posts">Articles</a></li>
                             <li class="breadcrumb-item active" aria-current="page">New article</li>
                         </ol>
                     </nav>
@@ -60,59 +70,91 @@
                             <img src="../assets/system/img/subscriptions.png" class=" Page-illustration img-fluid"
                                  width="400" height="200" alt="">
                         </div>
-                    </div>
-                </div>
-                <div class="card  Card shadow-sm">
-                    <div class="container">
                         <br>
-                        <form action="#" method="post">
-                            <div class="form-group">
-                                <label for="InputTitle">Title</label>
-                                <input type="text" class="form-control" id="InputTitle" placeholder="Enter article title">
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Category</label>
-                                    <select class="custom-select">
-                                        <option selected>Select a category</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Cover image</label>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="InputContent">Content</label>
-                                <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                            <div class="d-flex flex-row-reverse FormControl">
-                                <button type="button" class="btn btn-light">
-                                    <i class="fas fa-trash"></i>&nbsp;
-                                    Cancel
-                                </button>
-                                <button type="button" class="btn btn-light">
-                                    <i class="fas fa-file-archive"></i>&nbsp;
-                                    Draft
-                                </button>
-                                <button type="button" class="btn btn-light">
-                                    <i class="fas fa-file-export"></i>&nbsp;
-                                    Publish
-                                </button>
-                            </div>
-                        </form>
+                        <div class="row d-flex justify-content-end">
+                             <span>
+                                <a class="btn singleActionBtn" href="posts" role="button">
+                                    <i class="fas fa-file-alt"></i>&nbsp;
+                                    View articles
+                                </a>
+                            </span>
+                        </div>
+                        <br>
                     </div>
                 </div>
 
+
+
+                <div class="row">
+                    <div class="col-sm-12" style="padding-left: 0; padding-right: 0;">
+                        <div class="card  Card shadow-sm">
+                            <div class="container-fluid">
+                                <br>
+
+                                <form action="config/functions-posts.php" method="post" enctype="multipart/form-data">
+
+
+
+                                    <!--InputTitle-->
+                                    <div class="form-group">
+                                        <label for="InputTitle">Title</label>
+                                        <input type="text" class="form-control" id="InputTitle" placeholder="Enter article title" name="inputTitle" required>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <!--inputCategory-->
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail4">Category</label>
+                                            <select class="custom-select" name="inputCategory" required>
+                                                <option selected> - Select a category - </option>
+                                                <?php
+                                                    //We call the function that load category data
+                                                    $dataCategory = loadCategoryPost();
+                                                    foreach ( $dataCategory as $data):?>
+
+                                                    <option value="<?php echo $data[0]?>"><?php echo $data[1]?></option>
+
+                                                <?php endforeach;?>
+                                            </select>
+                                        </div>
+                                        <!--InputFile-->
+                                        <div class="form-group col-md-6">
+                                            <label>Cover image</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile" name="inputFile">
+                                                <label class="custom-file-label text-truncate" for="customFile">Choose file</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--InputContent-->
+                                    <div class="form-group">
+                                        <label for="InputContent">Content</label>
+                                        <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3" required name="inputContent">
+                                        </textarea>
+                                    </div>
+
+                                    <!--Control Option-->
+                                    <div class="d-flex flex-row-reverse FormControl">
+                                        <button type="button" class="btn singleActionBtn" name="cancel">
+                                            <i class="fas fa-trash"></i>&nbsp;
+                                            Cancel
+                                        </button>
+                                        <button type="button" class="btn singleActionBtn" name="draft">
+                                            <i class="fas fa-file-archive"></i>&nbsp;
+                                            Draft
+                                        </button>
+                                        <button type="submit" class="btn singleActionBtn" name="publish">
+                                            <i class="fas fa-file-export"></i>&nbsp;
+                                            Publish
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
 
 
@@ -124,12 +166,7 @@
 </div>
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../vendor/bootstrap/js/slim.min.js"></script>
-<script src="../vendor/bootstrap/js/popper.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="../vendor/summernote/dist/summernote-bs4.js"></script>
-<script src="js/script.js"></script>
+<!--Inclusion of the the JavaScript required files-->
+<?php include('inc/js-bottom-inc.php');?>
 </body>
 </html>

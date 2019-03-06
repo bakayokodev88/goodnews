@@ -21,15 +21,12 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
                 <div class="row" style="justify-content: center">
-                    <a class="navbar-brand" href="http://localhost/goodnews/">
-                        <img src="assets/system/img/goodnews.png" width="30" height="30"
-                             class="d-inline-block align-top" alt="">
-                        GoodNews
-                    </a>
+                    <img src="assets/system/icon/goodnews.png" width="64" height="64"
+                         class="d-inline-block align-top" alt="">
                 </div>
 
-                <p>Welcome to Good News!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum esse impedit labore magnam minus nemo quia rem </p>
+                <p>Welcome to your new account Good News!</p>
+                <p>A happier place for an Author to reach the largest tech community. <br> Take the next step by writing your first article.</p>
             </div>
             <div class="col-sm-2"></div>
         </div>
@@ -66,7 +63,7 @@
             </div>
         </div>
         <div class="row" style="justify-content: center;">
-            <a class="btn btn-primary" href="admin/" role="button">Click here to start</a>
+            <a class="btn btn-primary" href="admin/" role="button">Get started</a>
         </div>
     </div>
 </div>

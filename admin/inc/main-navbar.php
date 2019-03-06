@@ -6,6 +6,8 @@
                     <img src="../assets/system/icon/goodnews.png" width="32" height="32">
                 </span>
             <p>Goodnews</p>
+            &nbsp;
+            <p><i class="fas fa-bell"> <span class="badge">9</span></i></p>
         </ul>
 
         <!--Apps name + Marquee news End-->
@@ -20,8 +22,10 @@
         <!--User Account option-->
         <ul class="nav nav-2 justify-content-end">
             <li class="nav-item dropdown">
+
                 <a class="nav-link dropdown-toggle AuthorName" href="#" id="dropdownMenuButton" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
+
                     <img src="../assets/people/michael_pustovit.jpg" width="36" height="36"
                          class="d-inline-block align-top rounded-circle " alt="">
                     &nbsp;&nbsp;BAKAYOKO YAYA &nbsp;

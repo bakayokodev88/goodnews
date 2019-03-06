@@ -1,3 +1,11 @@
+<?php
+
+//We start the session
+session_start();
+include ('config/police.php');
+include ('../config/config.php');
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -47,6 +55,7 @@
                 <div class="row Title">
                     <div class="col-sm-6">
                         <h1>Articles tables</h1>
+
                         <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
                             ipsam neque nihil officiis quae quaerat, veritatis voluptate. Atque, blanditiis dolores
                             ducimus exercitationem fugit, illum incidunt perspiciatis quam reprehenderit soluta,
@@ -226,11 +235,7 @@
 </div>
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../vendor/bootstrap/js/slim.min.js"></script>
-<script src="../vendor/bootstrap/js/popper.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+<!--Inclusion of the the JavaScript required files-->
+<?php include('inc/js-bottom-inc.php');?>
 </body>
 </html>

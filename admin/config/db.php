@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: bakay
+ * Date: 3/6/2019
+ * Time: 5:18 AM
+ */
 
 // Connection to the database
 try
@@ -9,13 +15,3 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-
-
-// debug function outside
-
-function debug($variable)
-{
-    echo '<pre>' . print_r($variable, true) . '</pre>';
-}
-
-

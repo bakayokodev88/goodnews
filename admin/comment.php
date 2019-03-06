@@ -1,3 +1,11 @@
+<?php
+
+//We start the session
+session_start();
+include ('config/police.php');
+include ('../config/config.php');
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,6 +19,7 @@
 
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="css/posts.css">
+    <link rel="stylesheet" href="css/comments.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
     <title>Admin</title>
 </head>
@@ -50,18 +59,24 @@
                       <div class="col-sm-1"></div>
                       <div class="col-sm-10">
                           <div class="card">
+                              <div class="container">
+                                  <div class="row CommentCard">
+                                      <!--Text lenght should be specified to maintain the display-->
+                                      <p class="PostTitle text-justify font-weight-bold">Pulwama attack: Fear of retaliation spooks Pakistan; troops put on alert, Air Force conducts combat patrols</p>
+                                      <small class="text-muted">Post on April 1, 2018</small>
+                                      <br>
+                                      <div class="d-flex justify-content-between">
+                                          <p><i class="fas fa-inbox"></i>&nbsp;Category : <span class="">Apple</span></p>
+                                          <p><i class="fas fa-tag"></i>&nbsp;Status : <span class="badge badge-success">Active</span></p>
+                                          <p><i class="fas fa-comment-alt text-secondary"></i>&nbsp;Comments : <span class="">1369</span></p>
+                                          <p><i class="fas fa-heart text-danger"></i>&nbsp;Like : <span class="">1369</span></p>
+                                      </div>
+                                  </div>
 
-
-                              <!--Text lenght should be specified to maintain the display-->
-                              <p class="PostTitle text-justify font-weight-bold">Pulwama attack: Fear of retaliation spooks Pakistan; troops put on alert, Air Force conducts combat patrols</p>
-                              <small class="text-muted">Post on April 1, 2018</small>
-                              <br>
-                              <div class="d-flex justify-content-between">
-                                  <p><i class="fas fa-inbox"></i>&nbsp;Category : <span class="">Apple</span></p>
-                                  <p><i class="fas fa-tag"></i>&nbsp;Status : <span class="badge badge-success">Active</span></p>
-                                  <p><i class="fas fa-comment-alt text-secondary"></i>&nbsp;Comments : <span class="">1369</span></p>
-                                  <p><i class="fas fa-heart text-danger"></i>&nbsp;Like : <span class="">1369</span></p>
                               </div>
+
+
+
                           </div>
                       </div>
                       <div class="col-sm-2"></div>
@@ -104,11 +119,8 @@
 </div>
 
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../vendor/bootstrap/js/slim.min.js"></script>
-<script src="../vendor/bootstrap/js/popper.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+
+<!--Inclusion of the the JavaScript required files-->
+<?php include('inc/js-bottom-inc.php');?>
 </body>
 </html>

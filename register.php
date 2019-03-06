@@ -35,91 +35,56 @@ require_once('config/config.php')
                         Create your GoodNews Account
                     </h1>
 
-                    <!--Error testing to delete-->
-                    <?php
-
-                        //Test de de la procedure d'incription
-                        if (isset($_POST) && isset($_POST['clean'])) {
-                            session_destroy();
-                            header('Location: register.php?clean=true');
-                        }
-
-                        if (isset($_POST) && isset($_POST['register'])) {
-
-                            //Control the email
-                            if (isset($_POST['inputEmail'])) {
-                                //we check if the email address is unique
-                                $req = $db->prepare("SELECT id FROM authors WHERE email=?");
-                                $req->execute([$_POST['inputEmail']]);
-                                $res = $req->fetch();
-                                if ($res) {
-                                    $_SESSION['errors']['email'] = "This email is already used for another account";
-                                    echo "This email is already used for another account";
-                                } else {
-                                    //In case of success we save the input
-                                    $_SESSION['account']['email'] = $_POST['inputEmail'];
-                                }
-                            }
-
-
-                            if (isset($_POST['inputUsername'])) {
-                                //In case of success we save the input
-                                $req = $db->prepare("SELECT id FROM authors WHERE login=?");
-                                $req->execute([$_POST['inputUsername']]);
-                                $res = $req->fetch();
-                                if ($res){
-                                    $_SESSION['errors']['username'] = "Username is already used for another account";
-                                    echo "This email is already used for another account";
-                                }else{
-                                    $_SESSION['account']['username'] = $_POST['inputUsername'];
-                                }
-
-                            }
-
-                            //Password match ?
-                            if ($_POST['inputPassword'] != $_POST['inputPassword2']) {
-                                $_SESSION['errors']['password'] = "Password doesn't match session";
-                            }
-
-                        }
-
-                        debug($_SESSION['errors']);
-                        debug($_SESSION['account']);
-
-
-                    ?>
-
 
 
                     <!--Register form-->
-                    <form action="register.php" method="post">
+                    <form action="config/register.php" method="post">
                         <div class="form-row">
                             <!--First name-->
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" placeholder="First Name" name="inputFirstName"
-                                        required>
+                                        required
+                                       value="<?php if (isset($_SESSION['account']['firstName'])) {
+                                           echo $_SESSION['account']['firstName'];
+                                       } ?>">
                             </div>
                             <!--Last name-->
                             <div class="form-group col-md-6">
                                 <input type="text" class="form-control" placeholder="Last Name" name="inputLastName"
-                                        >
+                                        required value="<?php if (isset($_SESSION['account']['lastName'])) {
+                                    echo $_SESSION['account']['lastName'];
+                                } ?>">
                             </div>
                         </div>
                         <!--email address-->
                         <div class="form-group">
                             <input type="email" class="form-control" placeholder="Email Address"
-                                   name="inputEmail" required value="<?php if (isset($_SESSION['account']['email'])) {
-                                echo $_SESSION['account']['email'];
-                            } ?>">
+                                   name="inputEmail" required
+                                   value="<?php if (isset($_SESSION['account']['email'])) {
+                                       echo $_SESSION['account']['email'];
+                                   } ?>">
+                            <?php if (isset($_SESSION['errors']['username'])): ?>
+                                <p class='text-danger'>
+                                    <i class="fas fa-exclamation-circle"></i>&nbsp;
+                                    <?php echo $_SESSION['errors']['email'] ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                         <!--Username-->
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Username" name="inputUsername"
-                                   required>
+                                   required value="<?php if (isset($_SESSION['account']['username'])) {
+                                echo $_SESSION['account']['username'];
+                            } ?>">
+                            <?php if (isset($_SESSION['errors']['username'])): ?>
+                                <p class='text-danger'>
+                                    <i class="fas fa-exclamation-circle"></i>&nbsp;
+                                    <?php echo $_SESSION['errors']['username'] ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                         <!--Password-->
                         <div class="form-row">
-                            <!--Password-->
                             <div class="form-group col-md-6">
                                 <input type="password" class="form-control" placeholder="Password" name="inputPassword"
                                        required>
@@ -128,6 +93,12 @@ require_once('config/config.php')
                                 <input type="password" class="form-control" placeholder="Confirm" name="inputPassword2"
                                        required>
                             </div>
+                            <?php if (isset($_SESSION['errors']['password'])): ?>
+                                <p class='text-danger'>
+                                    <i class="fas fa-exclamation-circle"></i>&nbsp;
+                                    <?php echo $_SESSION['errors']['password'] ?>
+                                </p>
+                            <?php endif; ?>
                         </div>
                         <div class="form-row">
                             <div class="from-group col-md-6">
@@ -137,17 +108,16 @@ require_once('config/config.php')
                             <div class="from-group col-md-6 ButtonControl">
                                 <button type="submit" class="btn btn-primary float-right" name="register">Register
                                 </button>
-                                <button type="submit" class="btn float-right" name="Clean">
+                                <a class="btn float-right" href="config/register.php?clean=true" role="button">
                                     <i class="fas fa-trash-alt"></i>
-                                </button>
+                                </a>
+
                             </div>
                         </div>
                     </form>
                     <!--Register form End-->
                 </div>
             </div>
-
-
         </div>
         <div class="col-sm-6">
             <div class="row">

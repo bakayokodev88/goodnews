@@ -4,7 +4,6 @@
 session_start();
 include ('config/police.php');
 include ('config/db.php');
-include ('config/functions-posts.php');
 
 ?>
 
@@ -64,11 +63,13 @@ include ('config/functions-posts.php');
                             ipsam neque nihil officiis quae quaerat, veritatis voluptate. Atque, blanditiis dolores
                             ducimus exercitationem fugit.
                         </p>
+                        <?php
+                        include ('config/functions-posts.php');?>
                     </div>
                     <div class="col-sm-6">
                         <div class="row justify-content-end">
-                            <img src="../assets/system/img/subscriptions.png" class=" Page-illustration img-fluid"
-                                 width="400" height="200" alt="">
+                            <!--<img src="../assets/system/img/subscriptions.png" class=" Page-illustration img-fluid"
+                                 width="400" height="200" alt="">-->
                         </div>
                         <br>
                         <div class="row d-flex justify-content-end">
@@ -93,8 +94,6 @@ include ('config/functions-posts.php');
 
                                 <form action="config/functions-posts.php" method="post" enctype="multipart/form-data">
 
-
-
                                     <!--InputTitle-->
                                     <div class="form-group">
                                         <label for="InputTitle">Title</label>
@@ -105,7 +104,7 @@ include ('config/functions-posts.php');
                                         <!--inputCategory-->
                                         <div class="form-group col-md-6">
                                             <label for="inputEmail4">Category</label>
-                                            <select class="custom-select" name="inputCategory" required>
+                                            <select class="custom-select" name="inputCategory" >
                                                 <option selected> - Select a category - </option>
                                                 <?php
                                                     //We call the function that load category data
@@ -121,7 +120,7 @@ include ('config/functions-posts.php');
                                         <div class="form-group col-md-6">
                                             <label>Cover image</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile" name="inputFile">
+                                                <input type="file" class="custom-file-input" id="customFile" name="inputCover">
                                                 <label class="custom-file-label text-truncate" for="customFile">Choose file</label>
                                             </div>
 

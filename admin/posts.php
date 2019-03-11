@@ -20,6 +20,7 @@ include('../config/config.php');
 
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="css/posts.css">
+    <link rel="stylesheet" href="css/comments.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
     <title>Admin</title>
 </head>
@@ -81,8 +82,6 @@ include('../config/config.php');
                 } else {//Case with no content
                     include_once('inc/emptyContentPosts.php');
                 }
-
-
                 ?>
 
 

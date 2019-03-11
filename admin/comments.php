@@ -72,108 +72,88 @@ include ('../config/config.php');
 
 
                 <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
-                    <div class="row rowTable">
-                        <table class="table table-borderless ArticleTable">
-                            <thead>
-                            <tr>
-                                <th scope="col" style="padding-left: 0;">Comments</th>
-                                <th scope="col"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <!--Comment data-->
-                                <td>
-                                    <div class="row CommentRows align-middle">
-                                        <div class="col-sm-1">
-                                            <img src="../assets/people/jakub_škvára.jpg"
-                                                 class="img-fluid rounded-circle CommentImg" alt="">
-                                        </div>
-                                        <div class="col-sm-10">
-                                            <p class="Category font-weight-bold">Category</p>
-                                            <p class="ArticleTitle font-weight-bold">Article Title</p>
-                                            <p class="CommentItself">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                elit. Debitis et facilis maxime nisi obcaecati rem! Beatae consectetur
-                                                delectus distinctio impedit...</p>
-                                        </div>
-                                        <div class="col-sm-1 align-middle Table-control">
 
-                                            <div class="dropdown">
-                                                <span class="align-middle">
-                                                    <a class="btn btn-default " href="#" role="button"
-                                                       id="dropdownMenuLink"
-                                                       data-toggle="dropdown" aria-haspopup="true"
-                                                       aria-expanded="false">
+
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- Default dropright button -->
+                                    <div class="btn-group dropright OptionControl">
+                                        <button type="button" class="btn btn-light">
+                                            <i class="far fa-file"></i>&nbsp;
+                                            New article
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group" style="margin-bottom: 0">
+                                        <div class="row">
+                                            <div class="col-sm-11" style="padding-right: 0;">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="Search here..." aria-label="Search an article" aria-describedby="button-addon2">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline" type="button" id="button-addon2">
+                                                            <i class="fas fa-redo"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1 Table-control dropright d-flex justify-content-center " style="padding-right: 0; padding-left: 0;">
+
+                                                <a class="btn btn-default" href="#" role="button" id="dropdownMenuLink"
+                                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="fas fa-ellipsis-v"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-sm-right" aria-labelledby="dropdownMenuLink">
+                                                    <h6 class="dropdown-header">Sort by</h6>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fas fa-file-export"></i>&nbsp;&nbsp;Publish / Active
                                                     </a>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <a class="dropdown-item" href="comment.php">
-                                                        <i class="far fa-folder-open"></i>
-                                                        &nbsp; View
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fas fa-file-signature"></i>&nbsp;&nbsp;Draft
                                                     </a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal"
-                                                       data-target="#ModalCommentDelete">
-                                                        <i class="far fa-trash-alt"></i>
-                                                        &nbsp; Delete
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fas fa-ban"></i>&nbsp;&nbsp;Disable
                                                     </a>
                                                 </div>
-                                                </span>
-
                                             </div>
                                         </div>
 
                                     </div>
-                                </td>
-                                <!--Comment data End-->
-                            </tr>
-                            <tr>
-                                <!--Comment data-->
-                                <td>
-                                    <div class="row CommentRows align-middle">
-                                        <div class="col-sm-1">
-                                            <img src="../assets/people/jakub_škvára.jpg"
-                                                 class="img-fluid rounded-circle CommentImg" alt="">
-                                        </div>
-                                        <div class="col-sm-10">
-                                            <p class="Category font-weight-bold">Category</p>
-                                            <p class="ArticleTitle font-weight-bold">Article Title</p>
-                                            <p class="CommentItself">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                elit. Debitis et facilis maxime nisi obcaecati rem! Beatae consectetur
-                                                delectus distinctio impedit...</p>
-                                        </div>
-                                        <div class="col-sm-1 align-middle Table-control">
-
-                                            <div class="dropdown">
-                                                <span class="align-middle">
-                                                    <a class="btn btn-default " href="#" role="button"
-                                                       id="dropdownMenuLink"
-                                                       data-toggle="dropdown" aria-haspopup="true"
-                                                       aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-v"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <a class="dropdown-item" href="comment.php">
-                                                        <i class="far fa-folder-open"></i>
-                                                        &nbsp; View
-                                                    </a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal"
-                                                       data-target="#ModalCommentDelete">
-                                                        <i class="far fa-trash-alt"></i>
-                                                        &nbsp; Delete
-                                                    </a>
-                                                </div>
-                                                </span>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </td>
-                                <!--Comment data End-->
-                            </tr>
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+                            <hr>
+                            <ul class="list-group list-group-flush">
+                                <a href="comment.php" class="list-group-item list-group-item-action Table-hover rounded">
+                                   <div class="row">
+                                       <div class="col-sm-1 d-flex align-items-center" style="padding-right: 0;">
+                                           <img src="../assets/people/michael_pustovit.jpg" class="rounded-circle" width="48" height="48" >
+                                       </div>
+                                       <div class="col-sm-11" style="padding-left: 0;">
+                                           <div class="row">
+                                               <div class="col-sm-8">
+                                                   <p class="CommentAuthor font-weight-bold text-truncate">Bakayoko Yaya</p>
+                                               </div>
+                                               <div class="col-sm-4">
+                                                   <small class="text-muted float-right">Comment on April 1, 2018</small>
+                                               </div>
+                                           </div>
+                                           <p  class="ArticleTitle font-weight-bold text-truncate">
+                                               Pulwama attack: Fear of retaliation spooks Pakistan; troops put on alert, Air Force conducts combat patrols
+                                           </p>
+                                           <p class="CommentItself text-truncate" style="margin-bottom: 0;">
+                                               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet atque aut beatae corporis delectus deserunt, doloremque fugiat fugit itaque nisi nulla omnis possimus quas quia quo repellendus repudiandae rerum voluptatem.
+                                           </p>
+                                       </div>
+                                   </div>
+                                </a>
+                            </ul>
+                        </div>
                     </div>
+
+
 
                 </div>
 

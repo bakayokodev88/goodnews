@@ -2,8 +2,8 @@
 
 //We start the session
 session_start();
-include ('config/police.php');
-include ('../config/config.php');
+include('config/police.php');
+include('../config/config.php');
 
 ?>
 
@@ -20,6 +20,7 @@ include ('../config/config.php');
 
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/posts.css">
     <title>Admin</title>
 </head>
 <body id="home">
@@ -32,23 +33,114 @@ include ('../config/config.php');
 <div class="container-fluid">
     <div class="row">
         <!--Side Menu-->
-        <?php include('inc/sidebar.php');?>
+        <?php include('inc/sidebar.php'); ?>
         <!--Side Menu End-->
 
 
         <!-- Main Content -->
         <div class="col-sm-10 offset-md-2" id="main-content">
             <div class="container-fluid innerContent">
-                <div class="row justify-content-center">
-                    <h1 class="page-title">Dashboard</h1>
+
+
+                <!--Breadcrumb-->
+                <div class="row">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        </ol>
+                    </nav>
                 </div>
+                <!--Breadcrumb End-->
+
+                <div class="row justify-content-center">
+                    <h1 class="page-title">Good evening, Bakayoko</h1>
+                </div>
+
+                <!-- Resume account Status-->
+
+                <div class="row">
+
+                    <div class="col-sm-3">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <p class="cardDashNUmber">13</p>
+                                        <p class="cardDashTitle">Articles</p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span style="font-size: 48px; color: #1a73e8;"
+                                              class="d-flex justify-content-center">
+                                            <i class="fas fa-file-alt"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <p class="cardDashNUmber">13</p>
+                                        <p class="cardDashTitle">Drafts</p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span style="font-size: 48px; color: #1a73e8;"
+                                              class="d-flex justify-content-center">
+                                            <i class="fas fa-file-signature"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <p class="cardDashNUmber">1432</p>
+                                        <p class="cardDashTitle">Comments</p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span style="font-size: 48px; color: #1a73e8;"
+                                              class="d-flex justify-content-center">
+                                            <i class="fas fa-comments"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <p class="cardDashNUmber">1432</p>
+                                        <p class="cardDashTitle">Likes</p>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <span style="font-size: 48px; color: #1a73e8;"
+                                              class="d-flex justify-content-center">
+                                            <i class="fas fa-heart"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Resume account Status End-->
+
+
                 <?php
-                    debug($_SESSION);
-                    echo $idAuthor = $_SESSION['author']['idAuthor'];
+                debug($_SESSION);
+                echo $idAuthor = $_SESSION['author']['idAuthor'];
                 ?>
-
-
-
 
 
             </div>
@@ -60,6 +152,6 @@ include ('../config/config.php');
 </div>
 
 <!--Inclusion of the the JavaScript required files-->
-<?php include('inc/js-bottom-inc.php');?>
+<?php include('inc/js-bottom-inc.php'); ?>
 </body>
 </html>

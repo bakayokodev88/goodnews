@@ -18,18 +18,21 @@
     height: 64px;
 }
 
-.Category{
+.CommentAuthor{
+    color: #676a6c;
+    margin-bottom: 0 !important;
+    font-size: 14px;
+}
+
+.ArticleTitle{
+    color: #202124;
     margin-bottom: 0;
     font-size: 16px;
-
-}
-.ArticleTitle{
-    margin-bottom: 0;
-    font-size: 13px;
-
 }
 .CommentItself{
     font-size: 13px;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .ArticleTable td {
@@ -39,8 +42,36 @@
 
 
 /*===================Single comment page==================*/
-.CommentCard{
-    padding-left: 20px;
-    padding-right: 20px;
+.CommentCardBody .row img{
+    width: 96px;
+    height: 96px;
+}
+
+.BoxComment{
+    text-align: justify;
+    border: 1px solid rgba(0,0,0,.125);
+    padding: 20px;
+    position: relative;
+}
+.BoxComment:before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: white !important;
+    top: 10%;
+    left: -1px;
+    transform: translateX(-50%) rotate(45deg);
+    border-left: 1px solid rgba(0,0,0,.125);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    z-index: 1;
+}
+.BoxComment .col-sm-8 p{
+    color: #202124;
+    margin-bottom: 10px;
+}
+
+.CommentControl span{
+    margin-left: 1%;
 }
 /*===================Single comment page End==================*/

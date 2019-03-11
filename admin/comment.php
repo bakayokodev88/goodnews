@@ -56,63 +56,91 @@ include ('../config/config.php');
 
 
                   <div class="row">
-                      <div class="col-sm-1"></div>
-                      <div class="col-sm-10">
-                          <div class="card">
-                              <div class="container">
-                                  <div class="row CommentCard">
-                                      <!--Text lenght should be specified to maintain the display-->
-                                      <p class="PostTitle text-justify font-weight-bold">Pulwama attack: Fear of retaliation spooks Pakistan; troops put on alert, Air Force conducts combat patrols</p>
-                                      <small class="text-muted">Post on April 1, 2018</small>
-                                      <br>
-                                      <div class="d-flex justify-content-between">
-                                          <p><i class="fas fa-inbox"></i>&nbsp;Category : <span class="">Apple</span></p>
-                                          <p><i class="fas fa-tag"></i>&nbsp;Status : <span class="badge badge-success">Active</span></p>
-                                          <p><i class="fas fa-comment-alt text-secondary"></i>&nbsp;Comments : <span class="">1369</span></p>
-                                          <p><i class="fas fa-heart text-danger"></i>&nbsp;Like : <span class="">1369</span></p>
-                                      </div>
-                                  </div>
-
-                              </div>
-
-
-
-                          </div>
+                      <div class="col-sm-2">
                       </div>
-                      <div class="col-sm-2"></div>
+                      <div class="col-sm-8">
+                        <div class="row">
+                            <div class="card CommentCard shadow-sm rounded" style="width: 100%;">
+                                <img src="../assets/ban1.jpg" class="card-img-top"  style="height: 230px;">
+                                <div class="card-body CommentCardBody">
+                                    <small class="text-muted">Post on April 1, 2018</small>
+                                    <div class="row">
+                                        <div class="col-sm-12 d-flex justify-content-start">
+                                            <h5 class="card-title text-justify">Pulwama attack: Fear of retaliation spooks Pakistan; troops put on alert, Air Force conducts combat patrols</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-2 d-flex">
+                                            <img src="../assets/people/jakub_škvára.jpg" class="rounded-circle">
+                                        </div>
+                                        <div class="col-sm-10">
+
+                                            <div class="d-flex justify-content-between">
+                                                <p><i class="fas fa-inbox"></i>&nbsp;Category : <span class="">Apple</span></p>
+                                                <p><i class="fas fa-comment-alt text-secondary"></i>&nbsp;Comments : <span class="">1369</span></p>
+                                                <p><i class="fas fa-heart text-danger"></i>&nbsp;Like : <span class="">1369</span></p>
+                                            </div>
+                                            <div class="BoxComment shadow-sm rounded">
+                                                <div class="row">
+                                                    <div class="col-sm-8 d-flex justify-content-start">
+                                                        <p>Bakayoko Yaya</p>
+                                                    </div>
+                                                    <div class="col-sm-4 d-flex justify-content-end">
+                                                        <small>Comment on, 1 April 2019</small>
+                                                    </div>
+                                                </div>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque delectus dignissimos est eveniet ex excepturi, expedita laborum mollitia necessitatibus sed sequi ullam. Asperiores assumenda aut dolore, ex molestias quae voluptatum!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="container">
+                                        <div class="row d-flex justify-content-end CommentControl">
+                                            <span>
+                                                <a class="btn singleActionBtn" href="#" role="button">
+                                                    <i class="fas fa-thumbs-up"></i>&nbsp;
+                                                    Approved
+                                                 </a>
+                                           </span>
+                                            <span>
+                                                <a class="btn singleActionBtn" href="#" role="button">
+                                                    <i class="fas fa-thumbs-down"></i>&nbsp;
+                                                    Unapproved
+                                                 </a>
+                                           </span>
+                                            <span>
+                                                <a class="btn singleActionBtn" href="#" role="button">
+                                                    <i class="fas fa-reply"></i>&nbsp;
+                                                    Reply
+                                                 </a>
+                                           </span>
+                                            <span>
+                                                <a class="btn singleActionBtn" href="#" role="button">
+                                                    <i class="fas fa-trash"></i>&nbsp;
+                                                    Delete
+                                                 </a>
+                                           </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                      </div>
                   </div>
 
+                <br><br><br>
 
             </div>
         </div>
         <!-- Main Content End -->
 
 
-        <!--============ Modals for comments  ====================-->
-
-        <!--********** Modal to view comments **************-->
-        <div class="modal fade" id="ModalCommentDelete" tabindex="-1" role="dialog"
-             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Delete Comment</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Do you really want to delete this comments ?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--********** Modal to view comments End **************-->
-        <!--============ Modals for comments End ====================-->
 
 
     </div>

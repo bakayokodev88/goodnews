@@ -32,16 +32,7 @@
             </a>
         </li>
         <!--Article Link End-->
-        <!--Article Link-->
-        <li class="link">
-            <a href="draft">
-                <span>
-                    <i class="far fa-file-archive"></i>
-                </span>
-                <span>Draft</span>
-            </a>
-        </li>
-        <!--Article Link End-->
+
 
         <!--Comments link-->
         <li class="link">

@@ -74,7 +74,7 @@
                 <div class="row Comment">
 
                     <div class="col-sm-2">
-                        <img src="assets/system/img/people/adrian_kajda.jpg"  class="rounded-circle img-fluid" alt="">
+                        <img src="assets/system/icon/avatar.png"  class="rounded-circle img-fluid" alt="">
                     </div>
                     <div class="col-sm-10">
                         <div class="row">

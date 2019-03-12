@@ -193,6 +193,20 @@ html, body {
     background-color: #E8F0FE;
 }
 
+
+
+.ModalControlPrimary{
+    color: white;
+    border: 1px solid white;
+    background-color: #1a73e8;
+    cursor: pointer !important;
+}
+.ModalControlSecondary{
+    border: solid 1px #dfdfdf;
+    color: #1a73e8;
+    cursor: pointer;
+}
+
 /*================== Control Button End=============*/
 /*================== Empty Container Style=============*/
 .EmptyContainer{

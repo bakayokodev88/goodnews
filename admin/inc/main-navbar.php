@@ -35,7 +35,7 @@
                     <a class="nav-link AuthorName" href="#" id="dropdownMenuButton" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
 
-                        <img src="../assets/people/michael_pustovit.jpg" width="36" height="36"
+                        <img src="../assets/system/icon/avatar.png" width="36" height="36"
                              class="d-inline-block align-top rounded-circle " alt="">
                         &nbsp;&nbsp;<i class="fas fa-bars"></i> &nbsp;
                     </a>

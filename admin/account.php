@@ -55,7 +55,7 @@ include ('../config/config.php');
                 <!--Page title-->
                 <div class="row d-flex justify-content-center">
                     <figure class="figure AuthorPicture ">
-                        <img src="../assets/people/jakub_škvára.jpg" class="figure-img img-fluid rounded-circle" alt="Author profile picture">
+                        <img src="../assets/system/icon/avatar.png" class="figure-img img-fluid rounded-circle" alt="Author profile picture">
                     </figure>
                 </div>
                 <p class="Welcome">Welcome BAKAYOKO YAYA</p>

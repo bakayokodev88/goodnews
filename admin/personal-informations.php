@@ -4,6 +4,7 @@
 session_start();
 include ('config/police.php');
 include ('../config/config.php');
+include ('config/function-personal-information.php');
 
 ?>
 <!doctype html>
@@ -62,6 +63,10 @@ include ('../config/config.php');
                             <div class="col-sm-9">
                                 <h1 class="H1">Personal informations</h1>
                                 <p class="Sub">Basic information, such as your name and photo, that you use on GoodNews services</p>
+                                <div class="ModalControl">
+                                    <button type="button" class="btn ModalControlSecondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn ModalControlPrimary" name="updateContact">Save changes</button>
+                                </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="row d-flex justify-content-center">
@@ -70,6 +75,12 @@ include ('../config/config.php');
                                     </figure>
                                 </div>
                             </div>
+
+                            <?php
+                                //We load all the personal information of the User
+                                $dataAuthor = loadPersonalInformationData();
+                                debug($dataAuthor);
+                            ?>
                         </div>
                     </div>
                     <div class="col-sm-1">
@@ -107,8 +118,33 @@ include ('../config/config.php');
                                                 <span class="Value align-middle">
 
                                                     <div class="row d-flex justify-content-start">
-                                                        <img src="../assets/people/adrian_kajda.jpg"  class="img-fluid rounded-circle shadow  ProfilePicture" alt="">
+                                                        <?php
+                                                            if (isset($dataAuthor[0]['photo'])){
+                                                                $photo = "../assets/authors/.$dataAuthor[0]['photo']";
+                                                            }else{
+                                                                $photo  =" ../assets/system/icon/avatar.png";
+                                                            }
+                                                        ?>
+                                                        <img src="<?php echo $photo?>"  class="img-fluid rounded-circle shadow  ProfilePicture" alt="Author Profile picture">
                                                     </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <span class="Label align-middle">FIRST NAME</span>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <span class="Value align-middle">
+                                                    <?php
+                                                        if (isset($dataAuthor[0]['firstName'])){
+                                                            echo $dataAuthor[0]['firstName'];
+                                                        }else{
+                                                            echo "No information";
+                                                        }
+                                                    ?>
                                                 </span>
                                             </div>
                                         </div>
@@ -119,17 +155,15 @@ include ('../config/config.php');
                                                 <span class="Label align-middle">LAST NAME</span>
                                             </div>
                                             <div class="col-sm-8">
-                                                <span class="Value align-middle">BAKAYOKO</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <span class="Label align-middle">FIRST NAME</span>
-                                            </div>
-                                            <div class="col-sm-8">
-                                                <span class="Value align-middle">BAKAYOKO YAYA</span>
+                                                <span class="Value align-middle">
+                                                    <?php
+                                                    if (isset($dataAuthor[0]['lastName'])){
+                                                        echo $dataAuthor[0]['lastName'];
+                                                    }else{
+                                                        echo "No information";
+                                                    }
+                                                    ?>
+                                                </span>
                                             </div>
                                         </div>
                                     </li>
@@ -140,7 +174,15 @@ include ('../config/config.php');
                                                 <span class="Label align-middle">ABOUT</span>
                                             </div>
                                             <div class="col-sm-8">
-                                                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aspernatur distinctio doloribus dolorum esse et eveniet explicabo fugiat fugit magni mollitia nesciunt nulla omnis quia sequi, tempora ullam? Ab, quod.</p>
+                                                <p class="text-justify">
+                                                    <?php
+                                                        if (isset($dataAuthor[0]['description'])){
+                                                            echo $dataAuthor[0]['description'];
+                                                        }else{
+                                                            echo "No information";
+                                                        }
+                                                    ?>
+                                                </p>
                                             </div>
                                         </div>
                                     </li>
@@ -184,7 +226,15 @@ include ('../config/config.php');
                                                 <span class="Label align-middle">ADDRESSES E-MAIL</span>
                                             </div>
                                             <div class="col-sm-8">
-                                                <span class="Value align-middle">bakayokoyaya225@gmail.com</span>
+                                                <span class="Value align-middle">
+                                                    <?php
+                                                        if (isset($dataAuthor[0]['email'])){
+                                                            echo $dataAuthor[0]['email'];
+                                                        }else{
+                                                            echo "No information";
+                                                        }
+                                                    ?>
+                                                </span>
                                             </div>
                                         </div>
                                     </li>
@@ -194,7 +244,15 @@ include ('../config/config.php');
                                                 <span class="Label align-middle">PHONE</span>
                                             </div>
                                             <div class="col-sm-8">
-                                                <span class="Value align-middle">+919591340000</span>
+                                                <span class="Value align-middle">
+                                                    <?php
+                                                        if (isset($dataAuthor[0]['contact'])){
+                                                            echo $dataAuthor[0]['contact'];
+                                                        }else{
+                                                            echo "No information";
+                                                        }
+                                                    ?>
+                                                </span>
                                             </div>
                                         </div>
                                     </li>
@@ -204,7 +262,15 @@ include ('../config/config.php');
                                                 <span class="Label align-middle">FACEBOOK</span>
                                             </div>
                                             <div class="col-sm-8">
-                                                <span class="Value align-middle">+919591340000</span>
+                                                <span class="Value align-middle text-truncate">
+                                                    <?php
+                                                        if (isset($dataAuthor[0]['facebook'])){
+                                                            echo $dataAuthor[0]['facebook'];
+                                                        }else{
+                                                            echo "No information";
+                                                        }
+                                                    ?>
+                                                </span>
                                             </div>
                                         </div>
                                     </li>
@@ -214,7 +280,15 @@ include ('../config/config.php');
                                                 <span class="Label align-middle">TWITTER</span>
                                             </div>
                                             <div class="col-sm-8">
-                                                <span class="Value align-middle">+919591340000</span>
+                                                <span class="Value align-middle text-truncate">
+                                                    <?php
+                                                        if (isset($dataAuthor[0]['twitter'])){
+                                                            echo $dataAuthor[0]['twitter'];
+                                                        }else{
+                                                            echo "No information";
+                                                        }
+                                                    ?>
+                                                </span>
                                             </div>
                                         </div>
                                     </li>
@@ -224,7 +298,15 @@ include ('../config/config.php');
                                                 <span class="Label align-middle">YOUTUBE</span>
                                             </div>
                                             <div class="col-sm-8">
-                                                <span class="Value align-middle">+919591340000</span>
+                                                <span class="Value align-middle text-truncate">
+                                                    <?php
+                                                        if (isset($dataAuthor[0]['youtube'])){
+                                                            echo $dataAuthor[0]['youtube'];
+                                                        }else{
+                                                            echo "No information";
+                                                        }
+                                                    ?>
+                                                </span>
                                             </div>
                                         </div>
                                     </li>
@@ -250,7 +332,6 @@ include ('../config/config.php');
 </div>
 
 
-
 <!--============ Modals for edition ========================-->
 
 <!--********** Profile edition **************-->
@@ -264,29 +345,30 @@ include ('../config/config.php');
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#" method="post">
+
+                <form action="config/function-personal-information.php" method="post" enctype="multipart/form-data">
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" placeholder="First name" name="inputFirstName">
+                            <input type="text" class="form-control" placeholder="First name" name="inputFirstName" value="<?php if (isset($dataAuthor[0]['firstName'])){echo $dataAuthor[0]['firstName'];}?>">
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" placeholder="Last name" name="inputLastName">
+                            <input type="text" class="form-control" placeholder="Last name" name="inputLastName" value="<?php if (isset($dataAuthor[0]['lastName'])){echo $dataAuthor[0]['lastName'];}?>">
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputPhoto" name="inputPhoto">
-                                <label class="custom-file-label" for="inputPhoto">Choose profile picture</label>
+                                <input type="file" class="custom-file-input" id="inputPhoto" name="inputPhoto" >
+                                <label class="custom-file-label text-truncate" for="inputPhoto">Choose profile picture</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <textarea class="form-control" rows="3"  placeholder="Write about yourself" name="inputAbout"></textarea>
+                            <textarea class="form-control" rows="3"  placeholder="Write about yourself" name="inputAbout" value="<?php if (isset($dataAuthor[0]['description'])){echo $dataAuthor[0]['description'];}?>"></textarea>
                             <small id="AboutAreaHelpBlock" class="form-text text-muted">
                                 Your about description content must be less than 500 characters long.
                             </small>
@@ -296,62 +378,14 @@ include ('../config/config.php');
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div><!--********** Profile edition End***********-->
-
-        <!--********** Contact edition **************-->
-        <div class="modal fade" id="ModalContactEdition" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Contact information</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="#" method="post">
-
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" placeholder="E-mail" name="inputEmail">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" placeholder="Phone" name="inputPhone">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" placeholder="Facebook" name="inputFacebook">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" placeholder="Twitter" name="inputTwitter">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" placeholder="Youtube" name="inputYoutube">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
+                <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
         </div>
-        <!--********** Contact edition End***********-->
-
-        <!--============ Modals for edition End ====================-->
     </div>
 </div>
 <!--********** Profile edition End***********-->
+
+
 
 <!--********** Contact edition **************-->
 <div class="modal fade" id="ModalContactEdition" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -368,40 +402,50 @@ include ('../config/config.php');
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="email" class="form-control" placeholder="E-mail" name="inputEmail">
+                            <input type="email" class="form-control" placeholder="E-mail" name="inputEmail" value="<?php if (isset($dataAuthor[0]['email'])){echo $dataAuthor[0]['email'];}?>" >
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="tel" class="form-control" placeholder="Phone" name="inputPhone">
+                            <input type="tel" class="form-control" placeholder="Phone" name="inputPhone" value="<?php if (isset($dataAuthor[0]['contact'])){echo $dataAuthor[0]['contact'];}?>" >
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <input type="text" class="form-control" placeholder="Facebook" name="inputFacebook">
+                            <input type="text" class="form-control" placeholder="Facebook" name="inputFacebook" value="<?php if (isset($dataAuthor[0]['facebook'])){echo $dataAuthor[0]['facebook'];}?>">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <input type="text" class="form-control" placeholder="Twitter" name="inputTwitter">
+                            <input type="text" class="form-control" placeholder="Twitter" name="inputTwitter" value="<?php if (isset($dataAuthor[0]['twitter'])){echo $dataAuthor[0]['twitter'];}?>">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <input type="text" class="form-control" placeholder="Youtube" name="inputYoutube">
+                            <input type="text" class="form-control" placeholder="Youtube" name="inputYoutube" value="<?php if (isset($dataAuthor[0]['youtube'])){echo $dataAuthor[0]['youtube'];}?>">
                         </div>
                     </div>
+                    <hr>
+
+                    <div class="ModalControl">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="updateContact">Save changes</button>
+                    </div>
+
+
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+
         </div>
     </div>
 </div>
 <!--********** Contact edition End***********-->
 
-<!--============ Modals for edition End ====================-->
+
+
+
+
+
+
 
 
 <!--Inclusion of the the JavaScript required files-->

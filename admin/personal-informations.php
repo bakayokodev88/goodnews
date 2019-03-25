@@ -23,6 +23,10 @@ include ('config/function-personal-information.php');
     <link rel="stylesheet" href="css/personal-informations.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
     <title>Admin</title>
+
+
+
+
 </head>
 <body id="account">
 
@@ -51,6 +55,7 @@ include ('config/function-personal-information.php');
                             <li class="breadcrumb-item active" aria-current="page">Personal informations</li>
                         </ol>
                     </nav>
+
                 </div>
                 <!--Breadcrumb End-->
 
@@ -63,10 +68,8 @@ include ('config/function-personal-information.php');
                             <div class="col-sm-9">
                                 <h1 class="H1">Personal informations</h1>
                                 <p class="Sub">Basic information, such as your name and photo, that you use on GoodNews services</p>
-                                <div class="ModalControl">
-                                    <button type="button" class="btn ModalControlSecondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn ModalControlPrimary" name="updateContact">Save changes</button>
-                                </div>
+
+
                             </div>
                             <div class="col-sm-3">
                                 <div class="row d-flex justify-content-center">
@@ -79,9 +82,52 @@ include ('config/function-personal-information.php');
                             <?php
                                 //We load all the personal information of the User
                                 $dataAuthor = loadPersonalInformationData();
-                                debug($dataAuthor);
                             ?>
                         </div>
+
+                        <!--Alert notification-->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!--Success notification for contact information update-->
+                                <?php if (!empty($_GET) AND isset($_GET['updateContactInformation']) AND $_GET['updateContactInformation']="success"):?>
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Congratulation !</strong> your contact information has been updated.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <?php endif; ?>
+                                <!--Success notification for contact information update End-->
+
+
+                                <!--Success notification for Profile information update-->
+                                <?php if (!empty($_GET)  AND isset($_GET['updateProfileInformation']) AND $_GET['updateProfileInformation']="success"):?>
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Congratulation !</strong> your profile information has been updated.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <?php endif; ?>
+                                <!--Success notification for Profile information update End-->
+
+
+                                <!--Error notification for updating profile information-->
+                                <?php if (!empty($_GET) AND isset($_GET['updateProfileInformation']) AND  $_GET['updateProfileInformation']="fail" AND $_GET['errorUpload']=1) :?>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>Warning !</strong> Your profile picture should be either jpeg, JPEG or PNG.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <?php endif; ?>
+                                <!--Error notification for updating profile information-->
+
+                            </div>
+                        </div>
+                        <!--Alert notification End-->
+
+
                     </div>
                     <div class="col-sm-1">
                     </div>
@@ -119,13 +165,13 @@ include ('config/function-personal-information.php');
 
                                                     <div class="row d-flex justify-content-start">
                                                         <?php
-                                                            if (isset($dataAuthor[0]['photo'])){
-                                                                $photo = "../assets/authors/.$dataAuthor[0]['photo']";
+                                                            if (isset($dataAuthor[0]['photo']) AND !empty($dataAuthor[0]['photo'])){
+                                                                $photo = "../assets/authors/profiles/".$dataAuthor[0]['photo']."";
                                                             }else{
                                                                 $photo  =" ../assets/system/icon/avatar.png";
                                                             }
                                                         ?>
-                                                        <img src="<?php echo $photo?>"  class="img-fluid rounded-circle shadow  ProfilePicture" alt="Author Profile picture">
+                                                        <img src="<?php echo $photo?>"  class="img-fluid rounded-circle shadow  ProfilePicture" alt="Profile picture">
                                                     </div>
                                                 </span>
                                             </div>
@@ -300,7 +346,7 @@ include ('config/function-personal-information.php');
                                             <div class="col-sm-8">
                                                 <span class="Value align-middle text-truncate">
                                                     <?php
-                                                        if (isset($dataAuthor[0]['youtube'])){
+                                                        if (isset($dataAuthor[0]['youtube']) ){
                                                             echo $dataAuthor[0]['youtube'];
                                                         }else{
                                                             echo "No information";
@@ -350,17 +396,17 @@ include ('config/function-personal-information.php');
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" placeholder="First name" name="inputFirstName" value="<?php if (isset($dataAuthor[0]['firstName'])){echo $dataAuthor[0]['firstName'];}?>">
+                            <input type="text" class="form-control" placeholder="First name" name="inputFirstName" value="<?php if (isset($dataAuthor[0]['firstName'])){echo $dataAuthor[0]['firstName'];}?>" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" class="form-control" placeholder="Last name" name="inputLastName" value="<?php if (isset($dataAuthor[0]['lastName'])){echo $dataAuthor[0]['lastName'];}?>">
+                            <input type="text" class="form-control" placeholder="Last name" name="inputLastName" value="<?php if (isset($dataAuthor[0]['lastName'])){echo $dataAuthor[0]['lastName'];}?>" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputPhoto" name="inputPhoto" >
+                                <input type="file" class="custom-file-input" id="inputPhoto" name="avatar" >
                                 <label class="custom-file-label text-truncate" for="inputPhoto">Choose profile picture</label>
                             </div>
                         </div>
@@ -374,11 +420,11 @@ include ('config/function-personal-information.php');
                             </small>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn ModalControlSecondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn ModalControlPrimary" name="updateProfile">Save changes</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -398,14 +444,14 @@ include ('config/function-personal-information.php');
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#" method="post">
+                <form action="config/function-personal-information.php" method="post">
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="email" class="form-control" placeholder="E-mail" name="inputEmail" value="<?php if (isset($dataAuthor[0]['email'])){echo $dataAuthor[0]['email'];}?>" >
+                            <input type="email" class="form-control" placeholder="E-mail" name="inputEmail" value="<?php if (isset($dataAuthor[0]['email'])){echo $dataAuthor[0]['email'];}?>" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="tel" class="form-control" placeholder="Phone" name="inputPhone" value="<?php if (isset($dataAuthor[0]['contact'])){echo $dataAuthor[0]['contact'];}?>" >
+                            <input type="tel" class="form-control" placeholder="Phone" name="inputPhone" value="<?php if (isset($dataAuthor[0]['contact'])){echo $dataAuthor[0]['contact'];}?>" required>
                         </div>
                     </div>
 
@@ -426,9 +472,9 @@ include ('config/function-personal-information.php');
                     </div>
                     <hr>
 
-                    <div class="ModalControl">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="updateContact">Save changes</button>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn ModalControlSecondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn ModalControlPrimary" name="updateContact">Save changes</button>
                     </div>
 
 

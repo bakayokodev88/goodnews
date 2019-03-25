@@ -1,10 +1,5 @@
 <?php
-
-//We start the session
-session_start();
-include ('config/police.php');
-include ('../config/config.php');
-
+include ('inc/php-preload.php');
 ?>
 <!doctype html>
 <html lang="en">

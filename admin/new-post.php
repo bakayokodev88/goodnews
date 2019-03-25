@@ -1,11 +1,7 @@
 <?php
-
-//We start the session
-session_start();
-include ('config/police.php');
-include ('config/db.php');
-
+include ('inc/php-preload.php');
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -63,8 +59,7 @@ include ('config/db.php');
                             ipsam neque nihil officiis quae quaerat, veritatis voluptate. Atque, blanditiis dolores
                             ducimus exercitationem fugit.
                         </p>
-                        <?php
-                        include ('config/functions-posts.php');?>
+
                     </div>
                     <div class="col-sm-6">
                         <div class="row justify-content-end">
@@ -85,20 +80,52 @@ include ('config/db.php');
                 </div>
 
 
+                <div class="row">
+                    <div class="col-sm-12" style="padding-left: 0; padding-right: 0;">
+
+                        <!--Error notification for updating profile information-->
+                       <!-- <?php /*if (!empty($_GET) AND $_GET['errorPublish']=1):*/?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>Warning !</strong> Your article cover image should be either jpeg, jpg, or JPEG.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        --><?php /*endif; */?>
+                        <!--Error notification for updating profile information-->
+                    </div>
+                </div>
+
+
 
                 <div class="row">
                     <div class="col-sm-12" style="padding-left: 0; padding-right: 0;">
                         <div class="card  Card shadow-sm">
                             <div class="container-fluid">
                                 <br>
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-6 d-flex justify-content-end">
+                                        <div class="btn-group dropright OptionControl">
+                                            <a class="btn singleActionBtn" href="config/functions-posts.php?clearform=true" role="button">
+                                                <i class="fas fa-trash"></i>&nbsp;
+                                                Clear form
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <form action="config/functions-posts.php" method="post" enctype="multipart/form-data">
 
                                     <!--InputTitle-->
                                     <div class="form-group">
                                         <label for="InputTitle">Title</label>
-                                        <input type="text" class="form-control" id="InputTitle" placeholder="Enter article title" name="inputTitle" required>
+                                        <input type="text" class="form-control" id="InputTitle" placeholder="Enter article title" name="inputTitle" required value="<?php if (isset($_SESSION['article']['inputTitle'])) echo $_SESSION['article']['inputTitle']; ?>">
                                     </div>
+
+
+
+
 
                                     <div class="form-row">
                                         <!--inputCategory-->
@@ -110,9 +137,7 @@ include ('config/db.php');
                                                     //We call the function that load category data
                                                     $dataCategory = loadCategoryPost();
                                                     foreach ( $dataCategory as $data):?>
-
                                                     <option value="<?php echo $data[0]?>"><?php echo $data[1]?></option>
-
                                                 <?php endforeach;?>
                                             </select>
                                         </div>
@@ -120,7 +145,7 @@ include ('config/db.php');
                                         <div class="form-group col-md-6">
                                             <label>Cover image</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFile" name="inputCover">
+                                                <input type="file" class="custom-file-input" id="customFile" name="inputCover" required>
                                                 <label class="custom-file-label text-truncate" for="customFile">Choose file</label>
                                             </div>
 
@@ -129,17 +154,13 @@ include ('config/db.php');
                                     <!--InputContent-->
                                     <div class="form-group">
                                         <label for="InputContent">Content</label>
-                                        <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3" required name="inputContent">
+                                        <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3" name="inputContent" required value="<?php if ( isset($_SESSION['article']['inputContent'])) echo $_SESSION['article']['inputContent']; ?>">
                                         </textarea>
                                     </div>
 
                                     <!--Control Option-->
                                     <div class="d-flex flex-row-reverse FormControl">
-                                        <button type="button" class="btn singleActionBtn" name="cancel">
-                                            <i class="fas fa-trash"></i>&nbsp;
-                                            Cancel
-                                        </button>
-                                        <button type="button" class="btn singleActionBtn" name="draft">
+                                        <button type="submit" class="btn singleActionBtn" name="draft">
                                             <i class="fas fa-file-archive"></i>&nbsp;
                                             Draft
                                         </button>

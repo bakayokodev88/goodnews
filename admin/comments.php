@@ -80,10 +80,10 @@ include ('../config/config.php');
                                 <div class="col-sm-6">
                                     <!-- Default dropright button -->
                                     <div class="btn-group dropright OptionControl">
-                                        <button type="button" class="btn btn-light">
-                                            <i class="far fa-file"></i>&nbsp;
+                                        <a class="btn singleActionBtn" href="new-post" role="button">
+                                            <i class="fas fa-file-alt"></i>&nbsp;
                                             New article
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

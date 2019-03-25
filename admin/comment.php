@@ -1,10 +1,5 @@
 <?php
-
-//We start the session
-session_start();
-include ('config/police.php');
-include ('../config/config.php');
-
+include ('inc/php-preload.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -60,7 +55,7 @@ include ('../config/config.php');
                       </div>
                       <div class="col-sm-8">
                         <div class="row">
-                            <div class="card CommentCard shadow-sm rounded" style="width: 100%;">
+                            <div class="card CommentCard shadow-sm" style="width: 100%;">
                                 <img src="../assets/ban1.jpg" class="card-img-top"  style="height: 230px;">
                                 <div class="card-body CommentCardBody">
                                     <small class="text-muted">Post on April 1, 2018</small>

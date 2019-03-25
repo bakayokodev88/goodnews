@@ -1,10 +1,6 @@
+
 <?php
-
-//We start the session
-session_start();
-include('config/police.php');
-include('../config/config.php');
-
+include ('inc/php-preload.php');
 ?>
 
 <!doctype html>
@@ -64,12 +60,11 @@ include('../config/config.php');
                     </div>
                     <div class="col-sm-6">
                         <div class="row justify-content-end">
-                            <img src="../assets/system/img/subscriptions.png" class=" Page-illustration img-fluid"
-                                 width="400" height="200" alt="">
+                            <!--<img src="../assets/system/img/subscriptions.png" class=" Page-illustration img-fluid"
+                                 width="400" height="100" alt="">-->
                         </div>
                     </div>
                 </div>
-
 
                 <!--Loading a dynamics content for the posts page-->
                 <?php

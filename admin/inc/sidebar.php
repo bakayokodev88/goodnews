@@ -7,9 +7,22 @@
                     <i class="fas fa-home"></i>
                 </span>
                 <span>Home</span>
+
+
             </a>
         </li>
         <!--Home Link End-->
+
+        <!--New Article Link-->
+        <li class="link">
+            <a href="new-post">
+                <span>
+                    <i class="fas fa-file-medical"></i>
+                </span>
+                <span>&nbsp;New article</span>
+            </a>
+        </li>
+        <!--New Article Link End-->
 
         <!--Article Link-->
         <li class="link">
@@ -18,17 +31,6 @@
                     <i class="far fa-file-alt"></i>
                 </span>
                 <span>&nbsp;Articles</span>
-            </a>
-        </li>
-        <!--Article Link End-->
-
-        <!--Article Link-->
-        <li class="link">
-            <a href="new-post">
-                <span>
-                    <i class="fas fa-file-medical"></i>
-                </span>
-                <span>&nbsp;New article</span>
             </a>
         </li>
         <!--Article Link End-->

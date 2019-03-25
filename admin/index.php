@@ -1,10 +1,5 @@
 <?php
-
-//We start the session
-session_start();
-include('config/police.php');
-include('../config/config.php');
-
+    include ('inc/php-preload.php');
 ?>
 
 <!doctype html>
@@ -54,15 +49,15 @@ include('../config/config.php');
                 <!--Breadcrumb End-->
 
                 <div class="row justify-content-center">
-                    <h1 class="page-title">Good evening, Bakayoko</h1>
+                    <h1 class="page-title">Good evening, <?php echo $dataAuthor[0]['lastName']." ".$dataAuthor[0]['firstName'] ?></h1>
+
                 </div>
 
                 <!-- Resume account Status-->
 
-                <div class="row">
-
+                <div class="row MainCard4">
                     <div class="col-sm-3">
-                        <div class="card shadow-sm">
+                        <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-8">
@@ -80,7 +75,7 @@ include('../config/config.php');
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <div class="card shadow-sm">
+                        <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-8">
@@ -98,7 +93,7 @@ include('../config/config.php');
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <div class="card shadow-sm">
+                        <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-8">
@@ -116,7 +111,7 @@ include('../config/config.php');
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <div class="card shadow-sm">
+                        <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-8">
@@ -135,12 +130,6 @@ include('../config/config.php');
                     </div>
                 </div>
                 <!-- Resume account Status End-->
-
-
-                <?php
-                debug($_SESSION);
-                echo $idAuthor = $_SESSION['author']['idAuthor'];
-                ?>
 
 
             </div>

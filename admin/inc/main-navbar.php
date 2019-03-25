@@ -14,9 +14,17 @@
         </div>
         <div class="col-sm-6">
             <ul class=" nav justify-content-center testmarquee">
+                <?php
+                $titles = load5LastPosts();
+                $n=0;
+                ?>
                 <marquee behavior="scroll" direction="left" onmouseover="this.stop();"
-                         onmouseout="this.start();">
-                    <p>A scrolling text created with HTML Marquee element.</p>
+                         onmouseout="this.start();" scrolldelay="100" >
+                    <?php foreach ($titles as $title): ?>
+                        <?php$n=$n+1; ?>
+                        <span>&nbsp;&nbsp; <?php echo $n = $n+1?> | <?=  $title['title']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <?php endforeach; ?>
+
                 </marquee>
             </ul>
         </div>
@@ -34,8 +42,15 @@
                 <li class="nav-item dropdown" data-display="static">
                     <a class="nav-link AuthorName" href="#" id="dropdownMenuButton" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
+                        <?php
+                        if (isset($dataAuthor[0]['photo']) AND !empty($dataAuthor[0]['photo'])){
+                            $photo = "../assets/authors/profiles/".$dataAuthor[0]['photo']."";
+                        }else{
+                            $photo  =" ../assets/system/icon/avatar.png";
+                        }
+                        ?>
 
-                        <img src="../assets/system/icon/avatar.png" width="36" height="36"
+                        <img src="<?php echo $photo?>" width="36" height="36"
                              class="d-inline-block align-top rounded-circle " alt="">
                         &nbsp;&nbsp;<i class="fas fa-bars"></i> &nbsp;
                     </a>

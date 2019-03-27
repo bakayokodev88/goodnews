@@ -1,4 +1,6 @@
+.PostContent{
 
+}
 
 .PostContent img{
     max-width: 100%;
@@ -6,9 +8,10 @@
 }
 
 .PostContent h1{
-    font-size: 26px;
+    font-size: 28px;
     margin-top: 10px;
     margin-bottom: 5px;
+    color: #202124;
 }
 
 /*==============Comment===================*/

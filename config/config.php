@@ -10,12 +10,3 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-
-// debug function outside
-
-function debug($variable)
-{
-    echo '<pre>' . print_r($variable, true) . '</pre>';
-}
-
-

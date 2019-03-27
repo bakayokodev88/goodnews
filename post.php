@@ -1,3 +1,28 @@
+<?php
+
+    include ("config/autoloader.php");
+
+    if (isset($_GET['article']) AND !empty($_GET['article'])) {
+
+        //We convert the Id received through Get method to make sure it an Integer value
+        $_GET['article'] = intval(htmlentities($_GET['article']));
+
+        if ($_GET['article'] == 0){
+            //We do a redirection coz the page doesn't exist
+            header('Location: /goodnews');
+        }else{
+
+            //We load article information based on id
+            $dataPost = loadPostById($_GET['article']);
+        }
+
+    }
+
+
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -35,33 +60,24 @@
             <!-- Row Card Post -->
             <div class="container">
                 <div class="row PostContent">
-                    <img src="assets/ban2.jpg" class="img-fluid" alt="Responsive image">
-                    <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dicta dolor enim et</h1>
-                    <p class="card-text"><small class="text-muted">Post on April 1, 2018</small></p>
+
+                    <p class="text-uppercase">
+                        <?php
+                        //We load category information base on post Id
+                        $dataCategory = loadCategoryByIdPost($dataPost[0]['idCategory']);
+                        //We print Category label or name
+                        echo $dataCategory[0]['name'];
+                        ?>
+                    </p>
+                    <img src="assets/authors/posts/<?php  echo $dataPost[0]['cover']?>" class="img-fluid" style="width: 100%">
+                    <h1 class=""><?php echo $dataPost[0]['title']?></h1>
+                    <p class="card-text">
+                        <small class="text-muted">Post on
+                            <?php echo $var = date('F j, Y', strtotime($dataPost[0]['datePost'])); ?>
+                        </small>
+                    </p>
                     <p class="">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa deserunt dignissimos distinctio, eligendi error eum id illo laborum libero maiores nobis, nostrum odio quasi repellat reprehenderit velit veritatis voluptas.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi corporis distinctio, doloremque eligendi, expedita fuga incidunt laudantium mollitia numquam, officiis porro quam quidem quos rerum saepe soluta unde voluptatem?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores commodi dicta facere ipsa laboriosam obcaecati reiciendis repellendus? Cum dolorum error ex laboriosam minus mollitia placeat provident quidem temporibus ullam.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa deserunt dignissimos distinctio, eligendi error eum id illo laborum libero maiores nobis, nostrum odio quasi repellat reprehenderit velit veritatis voluptas.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi corporis distinctio, doloremque eligendi, expedita fuga incidunt laudantium mollitia numquam, officiis porro quam quidem quos rerum saepe soluta unde voluptatem?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores commodi dicta facere ipsa laboriosam obcaecati reiciendis repellendus? Cum dolorum error ex laboriosam minus mollitia placeat provident quidem temporibus ullam.
-                        <br>
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa deserunt dignissimos distinctio, eligendi error eum id illo laborum libero maiores nobis, nostrum odio quasi repellat reprehenderit velit veritatis voluptas.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi corporis distinctio, doloremque eligendi, expedita fuga incidunt laudantium mollitia numquam, officiis porro quam quidem quos rerum saepe soluta unde voluptatem?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores commodi dicta facere ipsa laboriosam obcaecati reiciendis repellendus? Cum dolorum error ex laboriosam minus mollitia placeat provident quidem temporibus ullam.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa deserunt dignissimos distinctio, eligendi error eum id illo laborum libero maiores nobis, nostrum odio quasi repellat reprehenderit velit veritatis voluptas.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi corporis distinctio, doloremque eligendi, expedita fuga incidunt laudantium mollitia numquam, officiis porro quam quidem quos rerum saepe soluta unde voluptatem?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores commodi dicta facere ipsa laboriosam obcaecati reiciendis repellendus? Cum dolorum error ex laboriosam minus mollitia placeat provident quidem temporibus ullam.
-                        <br>
-
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa deserunt dignissimos distinctio, eligendi error eum id illo laborum libero maiores nobis, nostrum odio quasi repellat reprehenderit velit veritatis voluptas.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi corporis distinctio, doloremque eligendi, expedita fuga incidunt laudantium mollitia numquam, officiis porro quam quidem quos rerum saepe soluta unde voluptatem?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores commodi dicta facere ipsa laboriosam obcaecati reiciendis repellendus? Cum dolorum error ex laboriosam minus mollitia placeat provident quidem temporibus ullam.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa deserunt dignissimos distinctio, eligendi error eum id illo laborum libero maiores nobis, nostrum odio quasi repellat reprehenderit velit veritatis voluptas.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi corporis distinctio, doloremque eligendi, expedita fuga incidunt laudantium mollitia numquam, officiis porro quam quidem quos rerum saepe soluta unde voluptatem?
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores commodi dicta facere ipsa laboriosam obcaecati reiciendis repellendus? Cum dolorum error ex laboriosam minus mollitia placeat provident quidem temporibus ullam.
-                        <br>
+                        <?php echo $dataPost[0]['content']?>
                     </p>
                     <br>
                 </div>
@@ -74,7 +90,9 @@
                 <div class="row Comment">
 
                     <div class="col-sm-2">
-                        <img src="assets/system/icon/avatar.png"  class="rounded-circle img-fluid" alt="">
+                        <div class="unknown d-flex justify-content-center shadow-sm">
+                            <i class="fas fa-user fa-2x d-flex align-items-center"></i>
+                        </div>
                     </div>
                     <div class="col-sm-10">
                         <div class="row">
@@ -105,99 +123,9 @@
 
 
 
-
-
-
-
         <!--Sidebar -->
         <div class="col-sm-3 Sidebar">
-            <!-- Search form -->
-            <div class="container">
-                <div class="row">
-                    <form action="#" method="#">
-                        <div class="form-row">
-                            <div class="col-md-9 mb-3">
-                                <input type="text" class="form-control" id="search" placeholder="Search here">
-                            </div>
-                            <div class="col-md-2 mb-3">
-                                <button type="submit" class="btn btn-primary mb-2">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <!-- Search form End-->
-
-            <!--Category -->
-            <h5>CATEGORY</h5>
-            <hr>
-            <div class="container">
-                <div class="row">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!--Category End-->
-            <br>
-            <!--Recent Post-->
-            <h5>RECENT POST</h5>
-            <hr>
-            <div class="container">
-                <div class="row">
-                    <div class="card CardRecentPost mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="assets/preview1.jpg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">How to stop smoke detectors that keep going off</h5>
-                                    <p class="card-text"><small class="text-muted">Post on April 1, 2018</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card CardRecentPost mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="assets/preview1.jpg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">How to stop smoke detectors that keep going off</h5>
-                                    <p class="card-text"><small class="text-muted">Post on April 1, 2018</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card CardRecentPost mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="assets/preview1.jpg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">How to stop smoke detectors that keep going off</h5>
-                                    <p class="card-text"><small class="text-muted">Post on April 1, 2018</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Recent Post End-->
-
+            <?php include "webroot/inc/sideBarPost.php";?>
 
         </div>
         <!--Side End-->

@@ -1,10 +1,8 @@
 <?php
 
 //We start the session
-session_start();
-include ('config/police.php');
-include ('../config/config.php');
-include ('config/function-personal-information.php');
+include ('inc/php-preload.php');
+$dataAuthor = loadPersonalInformationData();
 
 ?>
 <!doctype html>
@@ -89,7 +87,7 @@ include ('config/function-personal-information.php');
                         <div class="row">
                             <div class="col-sm-12">
                                 <!--Success notification for contact information update-->
-                                <?php if (!empty($_GET) AND isset($_GET['updateContactInformation']) AND $_GET['updateContactInformation']="success"):?>
+                                <?php if (!empty($_GET) AND isset($_GET['updateContactInformation']) AND $_GET['updateContactInformation']=="success"):?>
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         <strong>Congratulation !</strong> your contact information has been updated.
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -101,7 +99,7 @@ include ('config/function-personal-information.php');
 
 
                                 <!--Success notification for Profile information update-->
-                                <?php if (!empty($_GET)  AND isset($_GET['updateProfileInformation']) AND $_GET['updateProfileInformation']="success"):?>
+                                <?php if (!empty($_GET)  AND isset($_GET['updateProfileInformation']) AND $_GET['updateProfileInformation']=="success"):?>
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         <strong>Congratulation !</strong> your profile information has been updated.
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -113,7 +111,7 @@ include ('config/function-personal-information.php');
 
 
                                 <!--Error notification for updating profile information-->
-                                <?php if (!empty($_GET) AND isset($_GET['updateProfileInformation']) AND  $_GET['updateProfileInformation']="fail" AND $_GET['errorUpload']=1) :?>
+                                <?php if (!empty($_GET) AND isset($_GET['updateProfileInformation']) AND  $_GET['updateProfileInformation']=="fail" AND $_GET['errorUpload']==1) :?>
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         <strong>Warning !</strong> Your profile picture should be either jpeg, JPEG or PNG.
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -171,7 +169,7 @@ include ('config/function-personal-information.php');
                                                                 $photo  =" ../assets/system/icon/avatar.png";
                                                             }
                                                         ?>
-                                                        <img src="<?php echo $photo?>"  class="img-fluid rounded-circle shadow  ProfilePicture" alt="Profile picture">
+                                                        <img src="<?php echo $photo?>"  class="img-fluid rounded-circle shadow  ProfilePicture" alt="Profile picture" style="width: 94px; height: 94px">
                                                     </div>
                                                 </span>
                                             </div>

@@ -54,12 +54,15 @@
         <i class="fas fa-file-alt"></i>&nbsp;
         New
     </a>&nbsp;&nbsp;
-    <a class="btn singleActionBtn" href="#" role="button">
+    <a class="btn singleActionBtn"  href="#" data-toggle="modal" data-target="#ModalEditPost" role="button">
         <i class="fas fa-edit"></i>&nbsp;
         Edit
     </a>&nbsp;&nbsp;
-    <a class="btn singleActionBtn" href="#" role="button">
+    <a class="btn singleActionBtn" href="#" data-toggle="modal" data-target="#ModalDeletePost" role="button">
         <i class="fas fa-trash"></i>&nbsp;
         Delete
     </a>&nbsp;&nbsp;
 </div>
+
+
+

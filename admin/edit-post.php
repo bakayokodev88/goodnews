@@ -1,11 +1,9 @@
 <?php
+include ('inc/php-preload.php');
 
-//We start the session
-session_start();
-include ('config/police.php');
-include ('../config/config.php');
 
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -25,7 +23,7 @@ include ('../config/config.php');
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
     <title>Admin</title>
 </head>
-<body id="posts">
+<body id="NewPost">
 
 <!--Main Navbar-->
 <?php include('inc/main-navbar.php') ?>
@@ -49,7 +47,7 @@ include ('../config/config.php');
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/posts">Article</a></li>
+                            <li class="breadcrumb-item"><a href="http://localhost/goodnews/admin/posts">Articles</a></li>
                             <li class="breadcrumb-item active" aria-current="page">New article</li>
                         </ol>
                     </nav>
@@ -58,70 +56,128 @@ include ('../config/config.php');
 
                 <div class="row Title">
                     <div class="col-sm-6">
-                        <h1>Create new article</h1>
+                        <h1>Edit your article</h1>
+                        <?php
+
+                        if (isset($_GET['edit']) AND $_GET['edit']=='true' AND isset($_GET['article']) AND !empty($_GET['article']) ){
+
+                            //We check if the article id is an Integer
+                            $idPost = intval($_GET['article']);
+
+                            if ($idPost > 0){
+                                $dataPost = loadArticleById($idPost);
+                                var_dump($dataPost);
+                            }else{
+                                header("Location:../posts.php");
+                            }
+
+                        }else{
+                            header("Location:../posts.php");
+                        }
+                        ?>
                         <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
                             ipsam neque nihil officiis quae quaerat, veritatis voluptate. Atque, blanditiis dolores
                             ducimus exercitationem fugit.
                         </p>
+
                     </div>
                     <div class="col-sm-6">
                         <div class="row justify-content-end">
-                            <img src="../assets/system/img/subscriptions.png" class=" Page-illustration img-fluid"
-                                 width="400" height="200" alt="">
+                            <!--<img src="../assets/system/img/subscriptions.png" class=" Page-illustration img-fluid"
+                                 width="400" height="200" alt="">-->
                         </div>
+                        <br>
+                        <div class="row d-flex justify-content-end">
+                             <span>
+                                <a class="btn singleActionBtn" href="posts" role="button">
+                                    <i class="fas fa-file-alt"></i>&nbsp;
+                                    View articles
+                                </a>
+                            </span>
+                        </div>
+                        <br>
                     </div>
                 </div>
-                <div class="card  Card shadow-sm">
-                    <div class="container">
-                        <br>
-                        <form action="#" method="post">
-                            <div class="form-group">
-                                <label for="InputTitle">Title</label>
-                                <input type="text" class="form-control" id="InputTitle" placeholder="Enter article title">
-                            </div>
 
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Category</label>
-                                    <select class="custom-select">
-                                        <option selected>Select a category</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputPassword4">Cover image</label>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                <div class="row">
+                    <div class="col-sm-12" style="padding-left: 0; padding-right: 0;">
+                        <div class="card  Card shadow-sm">
+                            <div class="container-fluid">
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-6 d-flex justify-content-end">
+                                        <div class="btn-group dropright OptionControl">
+                                            <a class="btn singleActionBtn" href="config/functions-posts.php?clearform=true" role="button">
+                                                <i class="fas fa-trash"></i>&nbsp;
+                                                Clear form
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+
+                                <form action="config/functions-posts.php" method="post" enctype="multipart/form-data">
+
+                                    <!--InputTitle-->
+                                    <div class="form-group">
+                                        <label for="InputTitle">Title</label>
+                                        <input type="text" class="form-control" id="InputTitle" placeholder="Enter article title" name="inputTitle" required value="<?php echo $dataPost[0]['title']?>">
+                                    </div>
 
 
-                            <div class="form-group">
-                                <label for="InputContent">Content</label>
-                                <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+
+
+                                    <div class="form-row">
+                                        <!--inputCategory-->
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail4">Category</label>
+                                            <select class="custom-select" name="inputCategory" >
+                                                <option selected>
+                                                    - Select a category -
+                                                </option>
+                                                <?php
+                                                    //We call the function that load category data
+                                                    $dataCategory = loadCategoryPost();
+                                                    foreach ( $dataCategory as $data):?>
+                                                    <option value="<?php echo $data[0]?>"><?php echo $data[1]?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </div>
+                                        <!--InputFile-->
+                                        <div class="form-group col-md-6">
+                                            <label>Cover image</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFile" name="inputCover"  required>
+                                                <label class="custom-file-label text-truncate" for="customFile">Choose file</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--InputContent-->
+                                    <div class="form-group">
+                                        <label for="InputContent">Content</label>
+                                        <textarea class="form-control summernote" id="exampleFormControlTextarea1" rows="3" name="inputContent" required value="<?php echo $dataPost[0]['content']?>">
+                                        </textarea>
+                                    </div>
+
+                                    <!--Control Option-->
+                                    <div class="d-flex flex-row-reverse FormControl">
+                                        <button type="submit" class="btn singleActionBtn" name="draft">
+                                            <i class="fas fa-file-archive"></i>&nbsp;
+                                            Draft
+                                        </button>
+                                        <button type="submit" class="btn singleActionBtn" name="edit" value="<?php echo $dataPost[0]['idPost']?>">
+                                            <i class="fas fa-file-export"></i>&nbsp;
+                                            Publish
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="d-flex flex-row-reverse FormControl">
-                                <button type="button" class="btn btn-light">
-                                    <i class="fas fa-trash"></i>&nbsp;
-                                    Cancel
-                                </button>
-                                <button type="button" class="btn btn-light">
-                                    <i class="fas fa-file-archive"></i>&nbsp;
-                                    Draft
-                                </button>
-                                <button type="button" class="btn btn-light">
-                                    <i class="fas fa-file-export"></i>&nbsp;
-                                    Publish
-                                </button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
 
+                </div>
 
 
 

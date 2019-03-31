@@ -77,8 +77,9 @@ include ('inc/php-preload.php');
                             $articleId = (int) $_GET['article'];
 
                             if ($articleId == 0){
-                                echo "Article you are looking for can't be reached !";
+                                include ('inc/errorPostDisplay.php');
                             }else{
+
                                 $dataPost = loadArticleById($articleId);
 
                                 //We made a request to collect the page by his Id
@@ -88,7 +89,6 @@ include ('inc/php-preload.php');
                                    echo "The article withe the id ".$articleId." does'nt exist";
                                }
                             }
-
                         }else{
                             include ('inc/errorPostDisplay.php');
                         }
@@ -108,6 +108,61 @@ include ('inc/php-preload.php');
 
     </div>
 </div>
+
+
+<!--============ Modals for edition ========================-->
+
+<!--********** Edit Post modal **************-->
+<div class="modal fade" id="ModalEditPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Edit post ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Do you wanna edit this post ?</p>
+                <br>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn ModalControlSecondary" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="edit-post?edit=true&article=<?php echo $dataPost[0]['idPost']; ?>" role="button">
+                        <i class="fas fa-edit"></i>&nbsp;
+                        Delete
+                    </a>&nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--********** Edit Post modal End ***********-->
+
+<!--********** Delete Post modal **************-->
+<div class="modal fade" id="ModalDeletePost" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Delete post ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Do you really wanna delete this post ?</p>
+                <small class="text-danger">* Once the post is deleted, it can not be recovered.</small>
+                <br><br>
+                <form action="config/functions-posts.php" method="post">
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn ModalControlSecondary" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn ModalControlPrimary" name="deletePost" value="<?php echo $dataPost[0]['idPost']; ?>">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--********** Delete Post modal End ***********-->
 
 
 

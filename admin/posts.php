@@ -66,6 +66,57 @@ include ('inc/php-preload.php');
                     </div>
                 </div>
 
+                <!--Alert Notification-->
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!--EDIT NOTIFICATION -->
+                        <!--************************************************************************************************-->
+                        <!--Success notification : Post has been update with success-->
+                        <?php if (isset($_GET) AND isset($_GET['edit']) AND $_GET['edit']=="success" AND isset($_GET['article']) AND !empty($_GET['article']) )   :?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Congratulation !</strong> your post N<sup>0</sup> <?php echo $_GET['article']; ?> has been updated.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php endif; ?>
+                        <!--Success notification : Post has been update with success End-->
+
+                        <!--************************************************************************************************-->
+                        <!--************************************************************************************************-->
+
+
+
+                        <!--CONTACT INFORMATION NOTIFICATION -->
+                        <!--************************************************************************************************-->
+
+
+
+                        <!--************************************************************************************************-->
+                        <!--************************************************************************************************-->
+
+
+                        <!--Success notification for contact information update-->
+                        <?php if (!empty($_GET) AND isset($_GET['delete']) AND $_GET['delete']=="success"):?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Congratulation !</strong> your post has been deleted.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php endif; ?>
+                        <!--Success notification for contact information update End-->
+                    </div>
+                </div>
+                <!--Alert Notification END-->
+
+
+
+
+
+
+
                 <!--Loading a dynamics content for the posts page-->
                 <?php
 

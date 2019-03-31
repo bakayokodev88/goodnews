@@ -41,11 +41,11 @@ $start = ($pageCurrent - 1) * $postPerPage;
 <body>
 
 <!--Menu -->
-<?php include("webroot/inc/navs.php") ?>
+<?php include("webroot/inc/navs.php");?>
 
 <!--Menu End-->
 <!--Carousel-->
-<?php include("webroot/inc/main-carousel.php") ?>
+<?php include("webroot/inc/main-carousel.php");?>
 
 <br><br>
 
@@ -128,6 +128,12 @@ $start = ($pageCurrent - 1) * $postPerPage;
     </div>
 </div>
 <!--Main Container End -->
+
+
+<div class="container-fluid Footer Nav1">
+    <?php include "webroot/inc/footer.php";?>
+</div>
+
 
 
 <!-- Optional JavaScript -->

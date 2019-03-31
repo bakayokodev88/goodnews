@@ -1,4 +1,4 @@
-<div class="col-sm-2" id="side-menu">
+<div class="col-sm-2 " id="side-menu">
     <ul>
         <!--Home Link-->
         <li>
@@ -7,8 +7,6 @@
                     <i class="fas fa-home"></i>
                 </span>
                 <span>Home</span>
-
-
             </a>
         </li>
         <!--Home Link End-->

@@ -26,7 +26,7 @@
         <!-- Image and text -->
         <nav class="navbar">
             <a class="navbar-brand" href="http://localhost/goodnews/">
-                <img src="assets/system/icon/goodnews.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <img src="assets/system/icon/goodnews.png" id="GoodNewsAncre" width="30" height="30" class="d-inline-block align-top" alt="">
                 &nbsp;GoodNews
             </a>
             <ul class="nav justify-content-end">

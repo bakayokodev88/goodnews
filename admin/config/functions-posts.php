@@ -191,7 +191,7 @@ function loadArticleById($id){
 
     //Request to select the Category data from the DB
     /** @var TYPE_NAME $db */
-    $req = $db->prepare('SELECT * FROM posts WHERE posts.idPost= "'.$id.'" AND WHERE idAuthor="'.$_SESSION['author']['idAuthor'].'" ORDER BY idPost DESC ');
+    $req = $db->prepare('SELECT * FROM posts WHERE posts.idPost= "'.$id.'" AND  idAuthor="'.$_SESSION['author']['idAuthor'].'" ORDER BY idPost DESC ');
     $req->execute();
     $dataSearch = $req->fetchAll();
 
@@ -324,8 +324,175 @@ if (isset($_POST) && isset($_POST['publish'])){ //if the publish option control 
 
 }
 
+/*============== New Post END =================*/
 
-/*=========================== New Post END ========================*/
+
+//Edit article and publish it
+/*=============================================*/
+if (isset($_POST) && isset($_POST['edit'])){ //if the publish option control has ben selected
+
+    session_start();
+
+
+    //We collect the Author Id
+    $idAuthor = $_SESSION['author']['idAuthor'];
+
+//We collect the post id for the update
+    $idPostToEdit = $_POST['edit'];
+
+
+// Connection to the database
+    include('db.php');
+
+
+
+    $errorPublish = null;
+
+//Constants declaration for article cover image
+    define('TARGET_PP', '../../assets/authors/posts/'); // Target repertory
+    define('MAX_SIZE', 5242880);    // Max size in Octets of files
+    define('WIDTH_MIN', 1000);      // Width max de l'image en pixels
+    define('HEIGHT_MIN', 500);    // Height max de l'image en pixels
+
+//Array of allowed extension
+    $extensions = array('jpg','jpeg','JPEG','JPG');    // Extension allowed
+
+
+//We retrieve the article cover image extension
+    $extension = strtolower(  substr(  strrchr($_FILES['inputCover']['name'], '.')  ,1)  );
+    if ( in_array($extension,$extensions) ){
+
+        //We collect the article cover image size
+        //Collection of image dimension
+        $SizeImg = getimagesize($_FILES['inputCover']['tmp_name']);
+
+        //We check the image dimension
+        if ( ($SizeImg[0] >= WIDTH_MIN)  && ($SizeImg[1] >= HEIGHT_MIN) ) {
+
+            //We check of the new article category have been selected
+            if (!is_int($_POST['inputCategory'])){
+
+                //We check the image size
+                if ($_FILES['inputCover']['size'] <= MAX_SIZE){
+
+                    //We create an unique Id Code under what we will save the image
+                    $uniqueName = md5(uniqid(rand(), true));
+                    $coverName = "{$uniqueName}.{$extension}";
+
+                    //We check if the upload is successful
+                    if(move_uploaded_file($_FILES['inputCover']['tmp_name'], TARGET_PP.$coverName)){
+
+                        //We update the post
+                        $req = $db->prepare('UPDATE posts SET  title = :title, cover = :cover, status = :status, content = :content, idAuthor = :idAuthor,  idCategory = :idCategory  WHERE idPost = :idPost');
+                        $req->execute(array(
+                            'title' => $_POST['inputTitle'],
+                            'cover' => $coverName,
+                            'status' => 1,  // 1 is the variable for Publishing an article
+                            'content' => $_POST['inputContent'],
+                            'idAuthor' => $idAuthor,
+                            'idCategory' => $_POST['inputCategory'],
+                            'idPost'=> $idPostToEdit
+                        ));
+
+
+
+                        $req->closeCursor();
+
+                        header("Location:../posts.php?edit=success&article=$idPostToEdit");
+
+                    }else{
+
+                        //We save article input information in a session
+                        $_SESSION['article']['inputTitle'] = $_POST['inputTitle'];
+                        $_SESSION['article']['inputContent'] = $_POST['inputContent'];
+
+                        //We throw an error coz the file hasn't been moved properly
+                        $errorPublish = 5;
+                        header("Location:../edit-post.php?publish=fail&errorPublish=$errorPublish");
+                    }
+
+                }else{
+                    //We save article input information in a session
+                    $_SESSION['article']['inputTitle'] = $_POST['inputTitle'];
+                    $_SESSION['article']['inputContent'] = $_POST['inputContent'];
+
+                    //We throw an error coz the file size should be less than 5 Mo
+                    $errorPublish = 4;
+                    header("Location:../edit-post.php?publish=fail&errorPublish=$errorPublish");
+                }
+
+            }else{
+                //We save article input information in a session
+                $_SESSION['article']['inputTitle'] = $_POST['inputTitle'];
+                $_SESSION['article']['inputContent'] = $_POST['inputContent'];
+
+                //We throw an error coz the article category is not specified
+                $errorPublish = 3;
+                header("Location:../edit-post.php?publish=fail&errorPublish=$errorPublish");
+            }
+
+
+        }else{
+
+            //We save article input information in a session
+            $_SESSION['article']['inputTitle'] = $_POST['inputTitle'];
+            $_SESSION['article']['inputContent'] = $_POST['inputContent'];
+
+            //We throw an error coz the file dimension is not greater than 1200*600
+            $errorPublish = 2;
+            header("Location:../edit-post.php?publish=fail&errorPublish=$errorPublish");
+        }
+
+    }else{
+
+        //We save article input information in a session
+        $_SESSION['article']['inputTitle'] = $_POST['inputTitle'];
+        $_SESSION['article']['inputContent'] = $_POST['inputContent'];
+
+        //We throw an error coz the file extension is not allowed
+        $errorPublish = 1;
+        header("Location:../edit-post.php?publish=fail&errorPublish=$errorPublish");
+    }
+
+
+
+
+
+}
+
+/*============== Edit Post END =================*/
+
+
+
+//Delete a post
+/*=============================================*/
+if (isset($_POST) AND isset($_POST['deletePost'])){
+
+    session_start();
+
+    //We collect the Author Id
+    $idAuthor = $_SESSION['author']['idAuthor'];
+
+    $id = $_POST['deletePost'];
+
+    // Connection to the database
+    include('db.php');
+
+    //Request to select the Category data from the DB
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('DELETE FROM posts WHERE  posts.idPost= "'.$id.'" AND idAuthor="'.$_SESSION['author']['idAuthor'].'"      ');
+    $req->execute();
+
+
+    $req->closeCursor();
+
+    header("Location:../posts.php?delete=success");
+
+    var_dump($_POST);
+
+}
+/*=============================================*/
+
 
 
 

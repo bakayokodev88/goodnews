@@ -59,24 +59,32 @@
 
             <!-- Row Card Post -->
             <div class="container">
-                <div class="row PostContent">
-
-                    <p class="text-uppercase">
-                        <?php
-                        //We load category information base on post Id
-                        $dataCategory = loadCategoryByIdPost($dataPost[0]['idCategory']);
-                        //We print Category label or name
-                        echo $dataCategory[0]['name'];
-                        ?>
-                    </p>
-                    <img src="assets/authors/posts/<?php  echo $dataPost[0]['cover']?>" class="img-fluid" style="width: 100%">
-                    <h1 class=""><?php echo $dataPost[0]['title']?></h1>
-                    <p class="card-text">
+                <div class="row sticky-top align-items-center" style="top: 56px; background-color: white; z-index: auto; height: 50px">
+                    <div class="col-sm-6" style="padding: 0">
+                        <p class="text-uppercase">
+                            <?php
+                            //We load category information base on post Id
+                            $dataCategory = loadCategoryByIdPost($dataPost[0]['idCategory']);
+                            //We print Category label or name
+                            echo $dataCategory[0]['name'];
+                            ?>
+                        </p>
+                    </div>
+                    <div class="col-sm-6 d-flex justify-content-end" style="padding: 0">
                         <small class="text-muted">Post on
                             <?php echo $var = date('F j, Y', strtotime($dataPost[0]['datePost'])); ?>
                         </small>
-                    </p>
-                    <p class="">
+                    </div>
+                </div>
+                <div class="row PostContent">
+
+
+
+
+                    <img src="assets/authors/posts/<?php  echo $dataPost[0]['cover']?>" class="img-fluid" style="width: 100%; margin-bottom: 20px;">
+                    <h1 class=""><?php echo $dataPost[0]['title']?></h1>
+
+                    <p>
                         <?php echo $dataPost[0]['content']?>
                     </p>
                     <br>
@@ -124,7 +132,7 @@
 
 
         <!--Sidebar -->
-        <div class="col-sm-3 Sidebar">
+        <div class="col-sm-3 Sidebar ">
             <?php include "webroot/inc/sideBarPost.php";?>
 
         </div>
@@ -135,6 +143,10 @@
 </div>
 <!--Main Container End -->
 
+
+<div class="container-fluid Footer Nav1">
+    <?php include "webroot/inc/footer.php";?>
+</div>
 
 
 

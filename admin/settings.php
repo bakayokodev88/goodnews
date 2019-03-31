@@ -1,9 +1,8 @@
 <?php
 
-//We start the session
-session_start();
-include ('config/police.php');
-include ('../config/config.php');
+    //We start the session
+    include ('inc/php-preload.php');
+    $dataAuthor = loadPersonalInformationData();
 
 ?>
 

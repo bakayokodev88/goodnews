@@ -147,3 +147,20 @@
     text-align: center;
 }
 /*============== Other End======================*/
+
+/*============== Footer======================*/
+.Footer{
+    background-color: #0069C0;
+
+}
+
+.Up{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    color: white;
+    background-color: #2196F3;
+    text-align: center;
+    margin-top: -24px;
+    /*background-color: #2196F3;*/
+}

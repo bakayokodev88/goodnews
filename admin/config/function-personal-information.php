@@ -31,11 +31,6 @@ function loadPersonalInformationData(){
 
 
 
-
-
-
-
-
 /*================= Update Profile Information ======================*/
 if (isset($_POST) && isset($_POST['updateProfile'])){
 
@@ -150,23 +145,8 @@ if (isset($_POST) && isset($_POST['updateProfile'])){
     }
 
 
-/*  */
-
-
-
 }
-/*================= Update Contact Information End ======================*/
-
-
-
-
-
-
-
-
-
-
-
+/*================= Update Profile Information End ======================*/
 
 
 /*================= Update Contact Information ======================*/
@@ -198,4 +178,127 @@ if (isset($_POST) && isset($_POST['updateContact'])){
 
 }
 /*================= Update Contact Information End ======================*/
+
+
+
+/*================= Update Username Information ======================*/
+if (isset($_POST) && isset($_POST['updateUsername'])){
+
+    session_start();
+
+    // Connection to the database
+    include('db.php');
+
+    //We collect the Author Id
+    $idAuthor = $_SESSION['author']['idAuthor'];
+
+    //We check if the provided username is unique
+    $providedUsername = htmlentities($_POST['inputUsername']);
+
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('SELECT * FROM authors WHERE login= "'.$providedUsername.'"  ');
+    $req->execute();
+    $dataSearch = $req->fetchAll();
+
+    //We close the queries
+    $req->closeCursor();
+
+    //We count the number of result
+    $result = count($dataSearch);
+
+    if ($result >= 1 ){
+
+        //We throw an error coz the username is already taken
+        header("Location:../security.php?updateUsername=failed&code=1");
+    }else{
+
+        //We check the Username conformity
+        $inputUsername1 = htmlentities($_POST['inputUsername']);
+        $inputUsername2 = htmlentities($_POST['inputUsername2']);
+
+        if ($inputUsername1 == $inputUsername2){
+
+            //We update the username of the author
+            $req = $db->prepare('UPDATE authors SET login = :username  WHERE idAuthor = :idAuthor');
+            $req->execute(array(
+                'username' => $inputUsername1,
+                'idAuthor'=> $idAuthor
+            ));
+
+            //We close the queries
+            $req->closeCursor();
+
+            //We throw a success for the update
+            header("Location:../security.php?updateUsername=success");
+
+        }else{
+            //We throw an error coz the username do not respect the conformity
+            header("Location:../security.php?updateUsername=failed&code=2");
+        }
+
+
+    }
+
+
+
+
+}
+/*================= Update Username Information End ======================*/
+
+/*================= Update Password Information ======================*/
+if (isset($_POST) && isset($_POST['updatePassword'])){
+
+    session_start();
+
+    // Connection to the database
+    include('db.php');
+
+    //We collect the Author Id
+    $idAuthor = $_SESSION['author']['idAuthor'];
+
+    //We collect the Author old password from the database
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare("SELECT password  FROM authors WHERE idAuthor = $idAuthor");
+    $req->execute();
+    $passwordRetrieved = $req->fetchAll();
+
+    //We close the queries
+    $req->closeCursor();
+
+
+    //We check if the provided password match with the one from our database
+    $providedPassword = htmlentities($_POST['inputCurrentPassword']);
+
+    if ($providedPassword == $passwordRetrieved[0]['password'] ){
+
+        //We check the password conformity
+        $inputPassword = htmlentities($_POST['inputPassword']);
+        $inputPasswordConfirm = htmlentities($_POST['inputPassword2']);
+
+        if ($inputPassword == $inputPasswordConfirm ){
+            //We update the password of the author
+            $req = $db->prepare('UPDATE authors SET password = :password  WHERE idAuthor = :idAuthor');
+            $req->execute(array(
+                'password' => $inputPassword,
+                'idAuthor'=> $idAuthor
+            ));
+
+            //We close the queries
+            $req->closeCursor();
+
+            //We throw a success for the update
+            header("Location:../security.php?updatePassword=success");
+
+        }else{
+            //We throw an error coz the new password doesn't match the conformity
+            header("Location:../security.php?updatePassword=error&code=2");
+        }
+
+    }else{
+        //We throw an error coz the provided mater password doesn't match
+        header("Location:../security.php?updatePassword=error&code=1");
+    }
+
+}
+/*================= Update Password Information End ======================*/
 

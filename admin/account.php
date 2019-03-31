@@ -1,5 +1,6 @@
 <?php
-include ('inc/php-preload.php');
+    include ('inc/php-preload.php');
+    $dataAuthor = loadPersonalInformationData();
 ?>
 <!doctype html>
 <html lang="en">
@@ -50,10 +51,17 @@ include ('inc/php-preload.php');
                 <!--Page title-->
                 <div class="row d-flex justify-content-center">
                     <figure class="figure AuthorPicture ">
-                        <img src="../assets/system/icon/avatar.png" class="figure-img img-fluid rounded-circle" alt="Author profile picture">
+                        <?php
+                        if (isset($dataAuthor[0]['photo']) AND !empty($dataAuthor[0]['photo'])){
+                            $photo = "../assets/authors/profiles/".$dataAuthor[0]['photo']."";
+                        }else{
+                            $photo  =" ../assets/system/icon/avatar.png";
+                        }
+                        ?>
+                        <img src="<?php echo  $photo?>" class="figure-img img-fluid rounded-circle" alt="Author profile picture">
                     </figure>
                 </div>
-                <p class="Welcome">Welcome BAKAYOKO YAYA</p>
+                <p class="Welcome">Welcome <?php echo $dataAuthor[0]['lastName']. " ".$dataAuthor[0]['firstName'] ?></p>
                 <p class="text-center">Manage your information and the privacy and security of your data to get the most out of GoodNews services</p>
                 <br>
 

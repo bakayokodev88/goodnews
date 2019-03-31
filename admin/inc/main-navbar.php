@@ -15,8 +15,9 @@
         <div class="col-sm-6">
             <ul class=" nav justify-content-center testmarquee">
                 <?php
-                $titles = load5LastPosts();
-                $n=0;
+                    include_once ('config/functions-posts.php');
+                    $titles = load5LastPosts();
+                    $n=0;
                 ?>
                 <marquee behavior="scroll" direction="left" onmouseover="this.stop();"
                          onmouseout="this.start();" scrolldelay="100" >

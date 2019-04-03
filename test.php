@@ -41,25 +41,29 @@ value="<?php if (isset($_SESSION['account']) && isset($_SESSION['account']['Last
 <?php endif;?>
 
 
-
-http://localhost/goodnews/index?page=4
-
-
-<div class="row justify-content-center">
-    <nav aria-label="...">
-        <ul class="pagination">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+<ul id="menu" class="mfb-component--br mfb-zoomin" data-mfb-toggle="hover">
+    <li class="mfb-component__wrap">
+        <a href="#" class="mfb-component__button--main">
+            <i class="mfb-component__main-icon--resting ion-plus-round"></i>
+            <i class="mfb-component__main-icon--active ion-close-round"></i>
+        </a>
+        <ul class="mfb-component__list">
+            <li>
+                <a href="#" data-mfb-label="Like" class="mfb-component__button--child">
+                    <i class="mfb-component__child-icon ion-social-github"></i>
+                </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            <li>
+                <a href="#" data-mfb-label="Dislike" class="mfb-component__button--child">
+                    <i class="mfb-component__child-icon ion-social-octocat"></i>
+                </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+
+            <li>
+                <a href="#" data-mfb-label="Share on Twitter" class="mfb-component__button--child">
+                    <i class="mfb-component__child-icon ion-social-twitter"></i>
+                </a>
             </li>
         </ul>
-    </nav>
-</div>
-
+    </li>
+</ul>

@@ -16,7 +16,8 @@ require_once('config/config.php')
     <link rel="stylesheet" href="webroot/css/stylesheet.css">
     <link rel="stylesheet" href="webroot/css/registration-login.css">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
-    <title>Hello, world!</title>
+    <link rel="icon" href="assets/system/icon/goodnews.ico">
+    <title>GoodNews : Register</title>
 </head>
 <body>
 

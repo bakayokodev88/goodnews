@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="webroot/css/stylesheet.css">
     <link rel="stylesheet" href="webroot/css/confirmation.css">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
-    <title>Hello, world!</title>
+    <link rel="icon" href="assets/system/icon/goodnews.ico">
+    <title>GoodNews</title>
 </head>
 <body>
 

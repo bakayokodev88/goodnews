@@ -158,6 +158,19 @@ html, body {
 /*==============Main Body end ======================*/
 
 
+/*============== Other ======================*/
+.unknown{
+    height: 96px;
+    width: 96px;
+    color: #1a73e8;
+    background-color: #e8f0fe;
+    border-radius: 50%;
+    text-align: center;
+}
+/*============== Other End======================*/
+
+
+
 
 
 

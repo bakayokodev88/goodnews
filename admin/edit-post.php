@@ -21,7 +21,8 @@ include ('inc/php-preload.php');
     <link rel="stylesheet" href="css/posts.css">
     <link rel="stylesheet" href="css/new-post.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
-    <title>Admin</title>
+    <link rel="icon" href="../assets/system/icon/goodnews.ico">
+    <title>GoodNews : Edit</title>
 </head>
 <body id="NewPost">
 

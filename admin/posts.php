@@ -18,7 +18,8 @@ include ('inc/php-preload.php');
     <link rel="stylesheet" href="css/posts.css">
     <link rel="stylesheet" href="css/comments.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
-    <title>Admin</title>
+    <link rel="icon" href="../assets/system/icon/goodnews.ico">
+    <title>GoodNews : Articles</title>
 </head>
 <body id="posts">
 

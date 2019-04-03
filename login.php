@@ -2,6 +2,8 @@
 
 require_once('config/config.php');
 session_start();
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,7 +18,8 @@ session_start();
     <link rel="stylesheet" href="webroot/css/stylesheet.css">
     <link rel="stylesheet" href="webroot/css/registration-login.css">
     <link rel="stylesheet" href="vendor/fontawesome/css/all.css">
-    <title>Hello, world!</title>
+    <link rel="icon" href="assets/system/icon/goodnews.ico">
+    <title>GoodNews - Login</title>
 </head>
 <body>
 
@@ -46,6 +49,7 @@ session_start();
                             echo "<p class='text-danger text-center'><i class=\"fas fa-exclamation-circle\"></i>&nbsp; Username or password incorrect !</p>";
                         }
                     ?>
+                    <?php ?>
 
                     <form action="config/login.php" method="post">
                         <div class="form-group">

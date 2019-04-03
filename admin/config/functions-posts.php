@@ -121,6 +121,9 @@ function loadPostsPublish(){
 
 //Function to load all the  draft article from the database
 /*=============================================*/
+/**
+ * @return mixed
+ */
 function loadPostsDraft(){
 
     // Connection to the database
@@ -488,7 +491,6 @@ if (isset($_POST) AND isset($_POST['deletePost'])){
 
     header("Location:../posts.php?delete=success");
 
-    var_dump($_POST);
 
 }
 /*=============================================*/
@@ -509,3 +511,103 @@ if (isset($_GET) && isset($_GET['clearform'])){ //if the publish option control 
 }
 
 /*=========================== Cancel Article edition END ========================*/
+
+
+//Function to load comments
+/*=============================================*/
+function loadComment(){
+
+    // Connection to the database
+    include('db.php');
+
+    //We collect the Author Id
+    $idAuthor = $_SESSION['author']['idAuthor'];
+
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('SELECT DISTINCT comments.* FROM comments, posts, authors WHERE comments.idPost = posts.idPost AND posts.idAuthor = "'.$idAuthor.'" ORDER BY date DESC ');
+    $req->execute();
+    $dataPosts = $req->fetchAll();
+
+    $req->closeCursor();
+
+    return $dataPosts;
+}
+/*============ load a specific post data based on Id END ==============*/
+
+
+
+//Function to load comments by Id Comment
+/*=============================================*/
+/**
+ * @param $id
+ * @return mixed
+ */
+function loadCommentByIdComment($id){
+
+    // Connection to the database
+    include('db.php');
+
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('SELECT * FROM comments WHERE  idComment="'.$id.'" ORDER BY date DESC');
+    $req->execute();
+    $data = $req->fetchAll();
+
+    $req->closeCursor();
+
+    return $data;
+}
+/*============ load a specific post data based on Id END ==============*/
+
+
+//Function to load comments by Id Comment
+/*=============================================*/
+/**
+ * @param $id
+ * @return mixed
+ */
+function loadCommentByIdPost($id){
+
+    // Connection to the database
+    include('db.php');
+
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('SELECT * FROM comments WHERE  idPost="'.$id.'" ORDER BY date DESC');
+    $req->execute();
+    $data = $req->fetchAll();
+
+    $req->closeCursor();
+
+    return $data;
+}
+/*============ load a specific post data based on Id END ==============*/
+
+
+//Delete a post
+/*=============================================*/
+if (isset($_POST) AND isset($_POST['deleteComment'])){
+
+    session_start();
+
+    //We collect the Author Id
+    $idAuthor = $_SESSION['author']['idAuthor'];
+
+    //We pass the id of the comment to be deleted
+    $id = $_POST['deleteComment'];
+
+    // Connection to the database
+    include('db.php');
+
+    //Request to select the Category data from the DB
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('DELETE FROM comments WHERE  comments.idComment= "'.$id.'"  ');
+    $req->execute();
+
+
+    $req->closeCursor();
+
+    header("Location:../comments?deleteComment=success");
+
+
+}
+/*=============================================*/
+

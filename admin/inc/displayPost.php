@@ -11,8 +11,7 @@
         <p class="PostTitle text-justify font-weight-bold">
             <?php echo $dataPost[0]['title']?>
         </p>
-        <small class="text-muted">Post on <?php echo $var = date('F j, Y', strtotime($dataPost[0]['datePost'])); ?>
-        </small>
+        <small class="text-muted">Post on <?php echo $var = date('F j, Y', strtotime($dataPost[0]['datePost'])); ?></small>
         <br>
         <div class="d-flex justify-content-between">
             <p><i class="fas fa-inbox"></i>&nbsp;Category :

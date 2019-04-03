@@ -120,3 +120,53 @@ function loadCategoryByIdPost($id){
 }
 /*============ Load category data by Id END ==============*/
 
+
+//=============================================*/
+//=============COMMENTS SECTION================*/
+/*=============================================*/
+
+//Function to create a new comment
+/*=============================================*/
+
+if ( isset($_POST) AND isset($_POST['postComment']) AND !empty($_POST['postComment']) ){
+
+    // Connection to the database
+    include('config.php');
+
+    $idPost = htmlentities($_POST['postComment']);
+
+    $req = $db->prepare('INSERT INTO comments(date, comment, email, firstName, lastName, idPost) 
+                            VALUES(NOW(), :comment, :email, :firstName, :lastName, :idPost)');
+    $req->execute(array(
+        'comment' => htmlentities($_POST['inputComment']),
+        'email' => htmlentities($_POST['inputEmail']),
+        'firstName' => htmlentities($_POST['inputFirstName']),
+        'lastName' => htmlentities($_POST['inputLastName']),
+        'idPost' => $idPost
+    ));
+
+    $req->closeCursor();
+
+    header("Location:../post.php?comment=posted&article=$idPost");
+
+}
+
+//Function to load comments by Id Post
+/*=============================================*/
+function loadCommentByPostId($id){
+
+    // Connection to the database
+    include('config.php');
+
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('SELECT * FROM comments WHERE  idPost="'.$id.'" ORDER BY date DESC');
+    $req->execute();
+    $dataPosts = $req->fetchAll();
+
+    $req->closeCursor();
+
+    return $dataPosts;
+}
+/*============ load a specific post data based on Id END ==============*/
+
+

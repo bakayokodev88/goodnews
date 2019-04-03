@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
     <link rel="stylesheet" href="css/posts.css">
-    <title>Admin</title>
+    <link rel="icon" href="../assets/system/icon/goodnews.ico">
+    <title>GoodNews : Dashboard</title>
 </head>
 <body id="home">
 
@@ -101,7 +102,9 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-8">
-                                        <p class="cardDashNUmber">1432</p>
+                                        <p class="cardDashNUmber">
+                                            <?php echo  $totalComment = count(loadComment());?>
+                                        </p>
                                         <p class="cardDashTitle">Comments</p>
                                     </div>
                                     <div class="col-sm-4">
@@ -192,24 +195,23 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Recent comments</h5>
 
+                                    <?php
+                                        if ($totalComment <= 6){
+                                            $n= $totalComment;
+                                        }else{
+                                            $n=6;
+                                        }
+                                    ?>
 
-                                    <?php $dataPosts = loadPosts(); for ($i = 0; $i <= 7; $i++): ?>
+                                    <?php $dataComment = loadComment(); for ($i = 0; $i < $n; $i++): ?>
                                         <ul class="list-group list-group-flush">
                                             <a href="#"  class="list-group-item list-group-item-action Table-hover rounded" style="padding:5px;">
                                                 <div class="row">
-                                                    <div class="col-sm-10">
-                                                        <p class="ArticleTitle text-truncate" style="margin-bottom: 0"><?php echo $dataPosts[$i]['title'] ?></p>
+                                                    <div class="col-sm-9">
+                                                        <p class="ArticleTitle text-truncate" style="margin-bottom: 0"><?php echo $dataComment[$i]['comment'] ?></p>
                                                     </div>
-                                                    <div class="col-sm-2 d-flex align-items-center">
-                                                        <?php
-                                                        if ($dataPosts[$i]['status'] == 1){
-                                                            echo '<span class="badge badge-pill badge-primary">Publish</span>';
-                                                        }elseif ($dataPosts[$i]['status'] == 2){
-                                                            echo '<span class="badge badge-pill badge-secondary">Draft</span>';
-                                                        }else{
-                                                            echo '<span class="badge badge-pill badge-dark">Disable</span>';
-                                                        }
-                                                        ?>
+                                                    <div class="col-sm-3 d-flex align-items-center" >
+                                                        <small><?php echo $var = date('F j, Y', strtotime($dataComment[$i]['date'] )); ?></small>
                                                     </div>
                                                 </div>
                                             </a>

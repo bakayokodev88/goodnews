@@ -22,7 +22,8 @@ include ('../config/config.php');
     <link rel="stylesheet" href="css/posts.css">
     <link rel="stylesheet" href="css/comments.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
-    <title>Admin</title>
+    <link rel="icon" href="../assets/system/icon/goodnews.ico">
+    <title>GoodNews : Comments</title>
 </head>
 <body id="comments">
 
@@ -70,9 +71,28 @@ include ('../config/config.php');
                     </div>
                 </div>
 
+                <!--ALERT ZONE -->
+                <div class="row">
+                    <div class="col-sm-12" >
+                        <!--COMMENT NOTIFICATION -->
+                        <!--************************************************************************************************-->
+                        <!--Success notification : Comment has been deleted with success-->
+                        <?php if (isset($_GET) AND isset($_GET['deleteComment']) AND $_GET['deleteComment']=="success"  )   :?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Good job !</strong> the comment has been deleted successfully.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php endif; ?>
+                        <!--Success notification : Comment has been deleted with success End-->
+
+                    </div>
+                </div>
+                <!--ALERT ZONE EMD-->
+
 
                 <div class="container-fluid" style="padding-left: 0; padding-right: 0;">
-
 
                     <div class="card shadow-sm">
                         <div class="card-body">
@@ -125,37 +145,49 @@ include ('../config/config.php');
                                 </div>
                             </div>
                             <hr>
-                            <ul class="list-group list-group-flush">
-                                <a href="comment.php" class="list-group-item list-group-item-action Table-hover rounded">
-                                   <div class="row">
-                                       <div class="col-sm-1 d-flex align-items-center" style="padding-right: 0;">
-                                           <img src="../assets/people/michael_pustovit.jpg" class="rounded-circle" width="48" height="48" >
-                                       </div>
-                                       <div class="col-sm-11" style="padding-left: 0;">
-                                           <div class="row">
-                                               <div class="col-sm-8">
-                                                   <p class="CommentAuthor font-weight-bold text-truncate">Bakayoko Yaya</p>
-                                               </div>
-                                               <div class="col-sm-4">
-                                                   <small class="text-muted float-right">Comment on April 1, 2018</small>
-                                               </div>
-                                           </div>
-                                           <p  class="ArticleTitle font-weight-bold text-truncate">
-                                               Pulwama attack: Fear of retaliation spooks Pakistan; troops put on alert, Air Force conducts combat patrols
-                                           </p>
-                                           <p class="CommentItself text-truncate" style="margin-bottom: 0;">
-                                               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet atque aut beatae corporis delectus deserunt, doloremque fugiat fugit itaque nisi nulla omnis possimus quas quia quo repellendus repudiandae rerum voluptatem.
-                                           </p>
-                                       </div>
-                                   </div>
-                                </a>
-                            </ul>
+
+                            <!--We load comments data and print -->
+                            <?php  $dataComment = loadComment(); foreach ($dataComment as $item) : ?>
+                                <ul class="list-group list-group-flush">
+                                    <a href="comment?id=<?php echo $item['idComment']?>" class="list-group-item list-group-item-action Table-hover rounded">
+                                        <div class="row">
+                                            <div class="col-sm-12" style="padding-left: 0;">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        <p class="CommentAuthor font-weight-bold text-truncate">
+                                                            <?php  echo  $item['firstName'].' '.$item['lastName']   ?>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <small class="text-muted float-right">Comment on <?php echo $var = date('F j, Y', strtotime($item['date'] )); ?></small>
+                                                    </div>
+                                                </div>
+                                                <p  class="ArticleTitle font-weight-bold text-truncate">
+                                                    <?php
+                                                        //We load article data(Title)
+                                                        $dataArticle = loadArticleById($item['idPost']);
+                                                        echo $dataArticle[0]['title'];
+                                                    ?>
+                                                </p>
+                                                <p class="CommentItself text-truncate" style="margin-bottom: 0;">
+                                                    <?php echo  $item['comment'] ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </ul>
+                            <?php  endforeach;?>
+                            <hr>
+
+
                         </div>
+
                     </div>
 
 
 
                 </div>
+                <br><br><br><br><br>
 
 
             </div>

@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="css/posts.css">
     <link rel="stylesheet" href="css/account.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
-    <title>Admin</title>
+    <link rel="icon" href="../assets/system/icon/goodnews.ico">
+    <title>GoodNews : My account</title>
 </head>
 <body id="account">
 

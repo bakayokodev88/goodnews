@@ -27,7 +27,8 @@ $dataAuthor = loadPersonalInformationData();
     <link rel="stylesheet" href="css/posts.css">
     <link rel="stylesheet" href="css/personal-informations.css">
     <link rel="stylesheet" href="../vendor/fontawesome/css/all.css">
-    <title>Admin</title>
+    <link rel="icon" href="../assets/system/icon/goodnews.ico">
+    <title>GoodNews : Security</title>
 </head>
 <body id="account">
 

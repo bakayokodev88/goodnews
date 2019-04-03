@@ -111,6 +111,74 @@
 
 /*============== Body End======================*/
 
+/*================== Control Button ================*/
+
+.ButtonPrimary {
+    background-color: transparent;
+    font-size: 15px;
+    border: 1px solid #1a73e8;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #1a73e8;
+    cursor: pointer;
+    display: inline-block;
+    height: 36px;
+    padding: 5px 20px 5px 20px;
+
+}
+
+.ButtonPrimary:hover{
+    background-color: transparent;
+    font-size: 15px;
+    border: 1px solid #1a73e8;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #1a73e8;
+    cursor: pointer;
+    display: inline-block;
+    height: 36px;
+    padding: 5px 20px 5px 20px;
+    text-decoration: none;
+}
+
+.singleActionBtn{
+    color: #1a73e8;
+    border: solid 1px #dfdfdf;
+}
+.singleActionBtn:hover{
+    color: #1a73e8;
+    background-color: #E8F0FE;
+}
+
+
+
+.ModalControlPrimary{
+    color: white;
+    border: 1px solid white;
+    background-color: #1a73e8;
+    cursor: pointer !important;
+}
+.ModalControlPrimary:hover{
+    color: white;
+    background-color: #1a73e8;
+    cursor: pointer !important;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+.ModalControlSecondary{
+    border: solid 1px #dfdfdf;
+    color: #1a73e8;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.ModalControlSecondary:hover{
+    border: solid 1px #dfdfdf;
+    color: #1a73e8;
+    cursor: pointer;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+/*================== Control Button End=============*/
+
 /*============== Sidebar======================*/
 .Sidebar .nav-link {
     color: #212529;

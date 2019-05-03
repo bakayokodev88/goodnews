@@ -122,18 +122,28 @@ if (isset($_GET['article']) AND !empty($_GET['article'])) {
                         <h5><?php echo count($dataComment) ?> COMMENT(S)</h5>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#" class="text-decoration-none" data-toggle="modal"
+                        <a href="#" class="text-decoration-none float-right" data-toggle="modal"
                            data-target="#authorModal">
-                            <div class="row">
-                                <div class="col-sm-2" class="align-middle">
-                                    <img src="assets/people/25248586.jpg" class="rounded-circle shadow-sm" height="48" width="48"
-                                         alt="">
+                            <span class="container">
+                                <div class="row">
+                                    <div class="col-sm-2 float-left">
+                                        <?php
+                                        if (isset($dataAuthor[0]['photo']) AND !empty($dataAuthor[0]['photo'])) {
+                                            $photo = "assets/authors/profiles/" . $dataAuthor[0]['photo'];
+                                        } else {
+                                            $photo = "assets/system/icon/avatar.png";
+                                        }
+                                        ?>
+                                        <img src="<?php echo $photo?>" class="rounded-circle shadow-sm" height="48"
+                                             width="48">
+                                    </div>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <div class="col-sm-9">
+                                        <small class="authorTitle">Written by</small>
+                                        <p class="authorName"><?php echo $dataAuthor[0]['lastName'] . ' ' . $dataAuthor[0]['firstName'] ?></p>
+                                    </div>
                                 </div>
-                                <div class="col-sm-10">
-                                    <small class="authorTitle">Written by</small>
-                                    <p class="authorName"><?php echo $dataAuthor[0]['lastName'].' '. $dataAuthor[0]['firstName'] ?></p>
-                                </div>
-                            </div>
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -326,31 +336,31 @@ if (isset($_GET['article']) AND !empty($_GET['article'])) {
                 <div class="row">
                     <div class="col-sm-2" class="align-middle">
                         <?php
-                        if (isset($dataAuthor[0]['photo']) AND !empty($dataAuthor[0]['photo'])){
-                            $photo = "assets/authors/profiles/".$dataAuthor[0]['photo'];
-                        }else{
-                            $photo  ="assets/system/icon/avatar.png";
+                        if (isset($dataAuthor[0]['photo']) AND !empty($dataAuthor[0]['photo'])) {
+                            $photo = "assets/authors/profiles/" . $dataAuthor[0]['photo'];
+                        } else {
+                            $photo = "assets/system/icon/avatar.png";
                         }
                         ?>
-                        <img src="<?php echo $photo?>" class="rounded-circle shadow-sm" height="96" width="96"
+                        <img src="<?php echo $photo ?>" class="rounded-circle shadow-sm" height="96" width="96"
                              alt="">
                     </div>
                     <div class="col-sm-10">
                         <small class="authorTitleModal">Author</small>
                         <p>
-                            <?php echo $dataAuthor[0]['lastName'].' '. $dataAuthor[0]['firstName'] ?>
+                            <?php echo $dataAuthor[0]['lastName'] . ' ' . $dataAuthor[0]['firstName'] ?>
                         </p>
                         <small class="authorTitleModal">Activity</small>
                         <div class="row" style="width: 100%">
                             <div class="col-sm-4">
                                 <i class="far fa-file-alt"></i>&nbsp;
                                 Articles :
-                                <?php echo count(loadAuthorPostsTotal($dataAuthor[0]['idAuthor']));  ?>
+                                <?php echo count(loadAuthorPostsTotal($dataAuthor[0]['idAuthor'])); ?>
                             </div>
                             <div class="col-sm-4">
                                 <i class="fas fa-comment-alt text-secondary"></i>&nbsp;
                                 Comments :
-                                <?php echo count(loadAuthorTotalComment($dataAuthor[0]['idAuthor']));  ?>
+                                <?php echo count(loadAuthorTotalComment($dataAuthor[0]['idAuthor'])); ?>
                             </div>
                             <div class="col-sm-4">
                                 <i class="fas fa-heart text-danger"></i>&nbsp;
@@ -363,20 +373,23 @@ if (isset($_GET['article']) AND !empty($_GET['article'])) {
                                 <span style="font-size: 16px; color: Dodgerblue;">
                                   <i class="fab fa-facebook-square"></i>
                                 </span>
-                                <a href="<?php echo $dataAuthor[0]['facebook']?>" target="_blank" style="text-decoration: none;color: #212529;">Facebook</a>
+                                <a href="<?php echo $dataAuthor[0]['facebook'] ?>" target="_blank"
+                                   style="text-decoration: none;color: #212529;">Facebook</a>
 
                             </div>
                             <div class="col-sm-4">
                                 <span style="font-size: 16px; color: Dodgerblue;">
                                   <i class="fab fa-twitter-square"></i>
                                 </span>
-                                <a href="<?php echo $dataAuthor[0]['twitter']?>" target="_blank" style="text-decoration: none;color: #212529;">Twitter</a>
+                                <a href="<?php echo $dataAuthor[0]['twitter'] ?>" target="_blank"
+                                   style="text-decoration: none;color: #212529;">Twitter</a>
                             </div>
                             <div class="col-sm-4">
                                 <span style="font-size: 16px; color: Dodgerblue;">
                                   <i class="fab fa-youtube-square"></i>
                                 </span>
-                                <a href="<?php echo $dataAuthor[0]['youtube']?>" target="_blank" style="text-decoration: none;color: #212529;">Youtube</a>
+                                <a href="<?php echo $dataAuthor[0]['youtube'] ?>" target="_blank"
+                                   style="text-decoration: none;color: #212529;">Youtube</a>
                             </div>
                         </div>
                         <br><br><br>
@@ -388,9 +401,9 @@ if (isset($_GET['article']) AND !empty($_GET['article'])) {
                         <div class="card-body">
                             <p>
                                 <?php
-                                if (!empty($dataAuthor[0]['description'])){
+                                if (!empty($dataAuthor[0]['description'])) {
                                     echo $dataAuthor[0]['description'];
-                                }else{
+                                } else {
                                     echo "No description to show yet !";
                                 }
 

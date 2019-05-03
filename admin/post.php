@@ -130,7 +130,7 @@ include ('inc/php-preload.php');
                     <button type="button" class="btn ModalControlSecondary" data-dismiss="modal">Cancel</button>
                     <a class="btn btn-primary" href="edit-post?edit=true&article=<?php echo $dataPost[0]['idPost']; ?>" role="button">
                         <i class="fas fa-edit"></i>&nbsp;
-                        Delete
+                        Edit
                     </a>&nbsp;
                 </div>
             </div>

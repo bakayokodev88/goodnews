@@ -16,6 +16,12 @@ if (isset($_GET['article']) AND !empty($_GET['article'])) {
         $dataPost = loadPostById($_GET['article']);
     }
 
+    //We collect the author Id for his profile Modal box
+    $idAuthorForModal = $dataPost[0]['idAuthor'];
+
+    //We load the author information
+    $dataAuthor = loadAuthorData($idAuthorForModal);
+
 }
 
 
@@ -108,11 +114,29 @@ if (isset($_GET['article']) AND !empty($_GET['article'])) {
 
             <div class="container">
                 <?php
-                    //We load all the comment
-                    $dataComment = loadCommentByPostId($dataPost[0]['idPost']);
+                //We load all the comment
+                $dataComment = loadCommentByPostId($dataPost[0]['idPost']);
                 ?>
-                <br>
-                <h5><?php echo count($dataComment) ?> COMMENT(S)</h5>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5><?php echo count($dataComment) ?> COMMENT(S)</h5>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#" class="text-decoration-none" data-toggle="modal"
+                           data-target="#authorModal">
+                            <div class="row">
+                                <div class="col-sm-2" class="align-middle">
+                                    <img src="assets/people/25248586.jpg" class="rounded-circle shadow-sm" height="48" width="48"
+                                         alt="">
+                                </div>
+                                <div class="col-sm-10">
+                                    <small class="authorTitle">Written by</small>
+                                    <p class="authorName"><?php echo $dataAuthor[0]['lastName'].' '. $dataAuthor[0]['firstName'] ?></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 <hr>
                 <?php foreach ($dataComment as $value): ?>
                     <div class="row Comment">
@@ -161,17 +185,19 @@ if (isset($_GET['article']) AND !empty($_GET['article'])) {
                     <div class="d-flex justify-content-center">
                         <button type="button" class="btn ModalControlSecondary" data-dismiss="modal">Load more</button>
                     </div>
-                <?php  endif;?>
+                <?php endif; ?>
 
                 <?php if (count($dataComment) == 0): ?>
-                    <h6 class="text-center"><i class="far fa-smile"></i> There's no comment available yet. Be the first, don't be shine.</h6>
+                    <h6 class="text-center"><i class="far fa-smile"></i> There's no comment available yet. Be the first,
+                        don't be shine.</h6>
                     <br>
                     <div class="d-flex justify-content-center">
-                        <a href="#" data-mfb-label="Comment"  data-toggle="modal" data-target="#commentModal" class="btn ModalControlSecondary" >
+                        <a href="#" data-mfb-label="Comment" data-toggle="modal" data-target="#commentModal"
+                           class="btn ModalControlSecondary">
                             Leave a comment
                         </a>
                     </div>
-                <?php  endif;?>
+                <?php endif; ?>
 
 
             </div>
@@ -280,6 +306,100 @@ if (isset($_GET['article']) AND !empty($_GET['article'])) {
                     </div>
                     <br><br>
                 </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Comment Modal END-->
+
+
+<!--Author Modal-->
+<!--=============-->
+<div class="modal fade" id="authorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
+
+            <div class="modal-body" style="width: 90%; margin-left: auto; margin-right: auto;">
+                <br>
+                <div class="row">
+                    <div class="col-sm-2" class="align-middle">
+                        <?php
+                        if (isset($dataAuthor[0]['photo']) AND !empty($dataAuthor[0]['photo'])){
+                            $photo = "assets/authors/profiles/".$dataAuthor[0]['photo'];
+                        }else{
+                            $photo  ="assets/system/icon/avatar.png";
+                        }
+                        ?>
+                        <img src="<?php echo $photo?>" class="rounded-circle shadow-sm" height="96" width="96"
+                             alt="">
+                    </div>
+                    <div class="col-sm-10">
+                        <small class="authorTitleModal">Author</small>
+                        <p>
+                            <?php echo $dataAuthor[0]['lastName'].' '. $dataAuthor[0]['firstName'] ?>
+                        </p>
+                        <small class="authorTitleModal">Activity</small>
+                        <div class="row" style="width: 100%">
+                            <div class="col-sm-4">
+                                <i class="far fa-file-alt"></i>&nbsp;
+                                Articles :
+                                <?php echo count(loadAuthorPostsTotal($dataAuthor[0]['idAuthor']));  ?>
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="fas fa-comment-alt text-secondary"></i>&nbsp;
+                                Comments :
+                                <?php echo count(loadAuthorTotalComment($dataAuthor[0]['idAuthor']));  ?>
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="fas fa-heart text-danger"></i>&nbsp;
+                                Likes : 1369
+                            </div>
+                        </div>
+                        <small class="authorTitleModal">Social Media</small>
+                        <div class="row" style="width: 100%">
+                            <div class="col-sm-4">
+                                <span style="font-size: 16px; color: Dodgerblue;">
+                                  <i class="fab fa-facebook-square"></i>
+                                </span>
+                                <a href="<?php echo $dataAuthor[0]['facebook']?>" target="_blank" style="text-decoration: none;color: #212529;">Facebook</a>
+
+                            </div>
+                            <div class="col-sm-4">
+                                <span style="font-size: 16px; color: Dodgerblue;">
+                                  <i class="fab fa-twitter-square"></i>
+                                </span>
+                                <a href="<?php echo $dataAuthor[0]['twitter']?>" target="_blank" style="text-decoration: none;color: #212529;">Twitter</a>
+                            </div>
+                            <div class="col-sm-4">
+                                <span style="font-size: 16px; color: Dodgerblue;">
+                                  <i class="fab fa-youtube-square"></i>
+                                </span>
+                                <a href="<?php echo $dataAuthor[0]['youtube']?>" target="_blank" style="text-decoration: none;color: #212529;">Youtube</a>
+                            </div>
+                        </div>
+                        <br><br><br>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            <p>
+                                <?php
+                                if (!empty($dataAuthor[0]['description'])){
+                                    echo $dataAuthor[0]['description'];
+                                }else{
+                                    echo "No description to show yet !";
+                                }
+
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>

@@ -67,7 +67,7 @@ include ('inc/php-preload.php');
 
                             if ($idPost > 0){
                                 $dataPost = loadArticleById($idPost);
-                                var_dump($dataPost);
+
                             }else{
                                 header("Location:../posts.php");
                             }

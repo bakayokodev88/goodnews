@@ -178,18 +178,10 @@ include ('../config/config.php');
                                 </ul>
                             <?php  endforeach;?>
                             <hr>
-
-
                         </div>
-
                     </div>
-
-
-
                 </div>
                 <br><br><br><br><br>
-
-
             </div>
         </div>
         <!-- Main Content End -->

@@ -205,7 +205,7 @@
 
                                     <?php $dataComment = loadComment(); for ($i = 0; $i < $n; $i++): ?>
                                         <ul class="list-group list-group-flush">
-                                            <a href="#"  class="list-group-item list-group-item-action Table-hover rounded" style="padding:5px;">
+                                            <a href="comment?id=<?php echo $dataComment[$i]['idComment']?>"  class="list-group-item list-group-item-action Table-hover rounded" style="padding:5px;">
                                                 <div class="row">
                                                     <div class="col-sm-9">
                                                         <p class="ArticleTitle text-truncate" style="margin-bottom: 0"><?php echo $dataComment[$i]['comment'] ?></p>

@@ -38,4 +38,13 @@
     font-size: 18px;
     padding-left: 10px;
 }
+
+.authorTitle{
+    color: black;
+}
+.authorName{
+    color: #0069C0;
+    font-weight: bold;
+    font-size: 16px;
+}
 /*==============Comment End===================*/

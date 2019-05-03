@@ -150,6 +150,25 @@ if ( isset($_POST) AND isset($_POST['postComment']) AND !empty($_POST['postComme
     header("Location:../post.php?comment=posted&article=$idPost");
 
 }
+//Function to load Author data by Id from Post
+/*=============================================*/
+function loadAuthorData($id){
+
+// Connection to the database
+    include('config.php');
+
+//Request to select the Category data from the DB
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('SELECT * FROM authors WHERE idAuthor="'.$id.'"');
+    $req->execute();
+    $dataAuthor = $req->fetchAll();
+
+    $req->closeCursor();
+
+    return $dataAuthor;
+}
+/*============ Load category data by Id END ==============*/
+
 
 //Function to load comments by Id Post
 /*=============================================*/
@@ -168,5 +187,43 @@ function loadCommentByPostId($id){
     return $dataPosts;
 }
 /*============ load a specific post data based on Id END ==============*/
+
+
+//Function to load Author Total post
+/*=============================================*/
+function loadAuthorPostsTotal($id){
+
+    // Connection to the database
+    include('config.php');
+
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('SELECT * FROM posts WHERE posts.idAuthor="'.$id.'" ');
+    $req->execute();
+    $dataPosts = $req->fetchAll();
+
+    $req->closeCursor();
+
+    return $dataPosts;
+}
+/*============ load Author Total post END ==============*/
+
+
+//Function to load Author Total Comments
+/*=============================================*/
+function loadAuthorTotalComment($id){
+
+    // Connection to the database
+    include('config.php');
+
+    /** @var TYPE_NAME $db */
+    $req = $db->prepare('SELECT DISTINCT comments.* FROM comments, posts, authors WHERE comments.idPost = posts.idPost AND posts.idAuthor = "'.$id.'"  ');
+    $req->execute();
+    $dataPosts = $req->fetchAll();
+
+    $req->closeCursor();
+
+    return $dataPosts;
+}
+/*============ load Author Total post END ==============*/
 
 

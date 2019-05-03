@@ -32,14 +32,14 @@
         <div class="col-sm-3">
             <!--User Account option-->
             <ul class="nav nav-2 justify-content-end align-middle">
-                <li class="nav-item NavNotification " style="width: 30px">
+                <!--<li class="nav-item NavNotification " style="width: 30px">
                     <a href="#">
                         <span style="padding-right: 0">
                             <i class="fas fa-bell"></i>
                         </span>
                         <span class="badge badge-warning" style="background-color: #e8f0fe">9</span>
                     </a>
-                </li>
+                </li>-->
                 <li class="nav-item dropdown" data-display="static">
                     <a class="nav-link AuthorName" href="#" id="dropdownMenuButton" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
